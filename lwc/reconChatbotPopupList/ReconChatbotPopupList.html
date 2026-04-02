@@ -1,0 +1,220 @@
+<template>
+    <div class="v2-shell">
+        <div class="v2-container">
+            <button class="v2-close-btn" onclick={handleClose} title="Close">
+                <lightning-icon icon-name="utility:close" alternative-text="Close" size="small"></lightning-icon>
+            </button>
+
+            <div class="v2-header-info">
+                <div class="slds-page-header slds-page-header_record-home v2-page-header">
+                    <div class="slds-media slds-media_center slds-has-flexi-truncate">
+                        <div class="slds-media__figure">
+                            <lightning-icon icon-name="standard:invoice" size="small"></lightning-icon>
+                        </div>
+                        <div class="slds-media__body">
+                            <div class="slds-page-header__name">
+                                <div class="slds-page-header__name-title">
+                                    <h1>
+                                        <span class="slds-page-header__title slds-truncate"
+                                            title="Invoice Reconciliation">
+                                            Invoice {invoiceId}
+                                        </span>
+                                    </h1>
+                                </div>
+                            </div>
+                            <div class="slds-page-header__name-meta v2-name-meta">
+                                <span class="v2-date-meta">Total Impressions: {totalImpressions}</span>
+                                <span class="v2-meta-sep">·</span>
+                                <span class="v2-date-meta">Calculated Revenue: {totalRevenue}</span>
+                                <span class="v2-meta-sep">·</span>
+                                <span class="v2-date-meta">Billed Revenue: {totalBilled}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- New invoice summary header details -->
+                <div class="invoice-header-details">
+
+
+                    <div class="invoice-detail-box">
+                        <div class="invoice-detail-label">Advertiser</div>
+                        <div class="invoice-detail-value" title={advertiserName}>{advertiserName}</div>
+                    </div>
+
+                    <div class="invoice-detail-box">
+                        <div class="invoice-detail-label">Start Date</div>
+                        <div class="invoice-detail-value" title={invoiceStartDate}>{invoiceStartDate}</div>
+                    </div>
+
+                    <div class="invoice-detail-box">
+                        <div class="invoice-detail-label">End Date</div>
+                        <div class="invoice-detail-value" title={invoiceEndDate}>{invoiceEndDate}</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="v2-toolbar">
+                <div class="v2-toolbar-left">
+                    <h3 class="v2-section-title">Invoice Line Items</h3>
+                </div>
+            </div>
+
+            <div class="v2-table-container">
+                <table class="v2-table">
+                    <thead>
+                        <tr>
+                            <th style="padding: 14px 16px;">LINE #</th>
+                            <th style="padding: 14px 16px;">PRODUCT</th>
+                            <th style="padding: 14px 16px;">DATES</th>
+                            <th style="text-align: right; padding: 14px 16px;">BILLED IMPRESSIONS</th>
+                            <th style="text-align: right; padding: 14px 16px;">RATE</th>
+                            <th style="text-align: right; padding: 14px 16px;">BILLED REVENUE</th>
+                            <th style="text-align: right; padding: 14px 16px;">CALCULATED REVENUE</th>
+                            <th style="text-align: center; padding: 14px 16px;">ACTIONS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={displayItems} for:item="item">
+                            <tr key={item.id} class={item.rowClass}>
+                                <td class="col-data">
+                                    <div class="cell-content"><b>{item.lineNumber}</b></div>
+                                </td>
+                                <td class="col-data">
+                                    <div class="cell-content" title={item.name}><b>{item.name}</b></div>
+                                </td>
+                                <td class="col-data">
+                                    <div class="cell-content" title={item.displayDates}>{item.displayDates}</div>
+                                </td>
+                                <td class="col-data" style="text-align: right;">
+                                    <div class="cell-content">{item.displayImpressions}</div>
+                                </td>
+                                <td class="col-data" style="text-align: right;">
+                                    <div class="cell-content">{item.displayRate}</div>
+                                </td>
+                                <td class="col-data" style="text-align: right;">
+                                    <div class="cell-content"><b>{item.displayBilledRevenue}</b></div>
+                                </td>
+                                <td class="col-data" style="text-align: right;">
+                                    <div class="cell-content"><b>{item.displayRevenue}</b></div>
+                                </td>
+                                <td class="col-actions" style="text-align: center; vertical-align: middle;">
+                                    <div class="action-menu-wrapper">
+                                        <button class="action-btn" data-itemid={item.id} onclick={toggleActionMenu}
+                                            title="Actions">
+                                            <lightning-icon icon-name="utility:threedots_vertical"
+                                                size="x-small"></lightning-icon>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <template if:true={item.isDetailsExpanded}>
+                                <tr key={item.id} class="details-row">
+                                    <td colspan="8">
+                                        <div class={item.detailsContainerClass}>
+                                            <div class="details-header">
+                                                <div class={item.detailsTitleClass}>Daily Delivery Breakdown</div>
+                                                <div class="details-header-actions">
+                                                    <button class="details-close-btn" data-itemid={item.id}
+                                                        onclick={collapseDetails} title="Collapse">
+                                                        <lightning-icon icon-name="utility:close"
+                                                            size="x-small"></lightning-icon>
+                                                    </button>
+                                                </div>
+                                            </div>
+
+                                            <div
+                                                style="margin-top: 12px; margin-bottom: 2px; font-size: 13px; font-weight: 500; padding: 10px; background: #fafafa; border: 1px solid #e5e5e5; border-radius: 4px; display: flex; gap: 24px; flex-wrap: wrap;">
+                                                <span><strong>Billed Impressions:</strong>
+                                                    {item.displayBilledImpressionsItem}</span>
+                                                <span><strong>Valid Impressions:</strong>
+                                                    {item.displayValidImpressions}</span>
+                                                <span><strong>Revenue:</strong> {item.displayRevenue}</span>
+                                            </div>
+
+                                            <div class="v2-table-container"
+                                                style="max-height: 200px; overflow-y: auto; margin-top: 12px;">
+                                                <table class="v2-table" style="font-size: 12px;">
+                                                    <thead>
+                                                        <tr>
+                                                            <th style="padding: 8px;">Date</th>
+                                                            <th style="padding: 8px;">Order Line Item</th>
+                                                            <th style="padding: 8px;">Quote Line Item</th>
+                                                            <th style="padding: 8px;">Pricing Model</th>
+                                                            <th style="padding: 8px; text-align: right;">Rate</th>
+                                                            <th style="padding: 8px; text-align: right;">Gross Imp</th>
+                                                            <th style="padding: 8px; text-align: right;">IVT %</th>
+                                                            <th style="padding: 8px; text-align: right;">Viewability %
+                                                            </th>
+                                                            <th style="padding: 8px; text-align: right;">Billable Imp
+                                                            </th>
+                                                            <th style="padding: 8px; text-align: right;">Revenue</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <template for:each={item.formattedDailyBlocks} for:item="db">
+                                                            <tr key={db.id} style="background: #fff;">
+                                                                <td
+                                                                    style="padding: 8px; border-bottom: 1px solid #f2f2f2;">
+                                                                    {db.displayDate}</td>
+                                                                <td
+                                                                    style="padding: 8px; border-bottom: 1px solid #f2f2f2;">
+                                                                    {db.displayOrderLineItem}</td>
+                                                                <td
+                                                                    style="padding: 8px; border-bottom: 1px solid #f2f2f2;">
+                                                                    {db.displayQuoteLineItem}</td>
+                                                                <td
+                                                                    style="padding: 8px; border-bottom: 1px solid #f2f2f2;">
+                                                                    {db.displayPricingModel}</td>
+                                                                <td
+                                                                    style="padding: 8px; border-bottom: 1px solid #f2f2f2; text-align: right;">
+                                                                    {db.displayRate}</td>
+                                                                <td
+                                                                    style="padding: 8px; border-bottom: 1px solid #f2f2f2; text-align: right;">
+                                                                    {db.displayGross}</td>
+                                                                <td
+                                                                    style="padding: 8px; border-bottom: 1px solid #f2f2f2; text-align: right;">
+                                                                    {db.displayIvt}</td>
+                                                                <td
+                                                                    style="padding: 8px; border-bottom: 1px solid #f2f2f2; text-align: right;">
+                                                                    {db.displayViewability}</td>
+                                                                <td
+                                                                    style="padding: 8px; border-bottom: 1px solid #f2f2f2; text-align: right;">
+                                                                    {db.displayBillableImp}</td>
+                                                                <td
+                                                                    style="padding: 8px; border-bottom: 1px solid #f2f2f2; text-align: right; font-weight: 600;">
+                                                                    {db.displayDailyRevenue}</td>
+                                                            </tr>
+                                                        </template>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </template>
+                        </template>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="v2-footer">
+                <div class="footer-info">Showing <strong>{displayItems.length}</strong> line items</div>
+            </div>
+        </div>
+    </div>
+
+    <template if:true={openActionMenuId}>
+        <div class="action-menu-overlay" onclick={closeActionMenu}></div>
+        <div class={actionMenuClass} style={actionMenuStyle}>
+            <template for:each={openActionMenuItems} for:item="action">
+                <div key={action.key} class="action-dropdown-item" data-action={action.key}
+                    data-itemid={openActionMenuId} onclick={handleActionClick}>
+                    <lightning-icon icon-name={action.icon} size="xx-small" class={action.iconClass}></lightning-icon>
+                    <span>{action.label}</span>
+                </div>
+            </template>
+        </div>
+    </template>
+</template>

@@ -1,0 +1,3664 @@
+[
+  {
+    "object": "Contact",
+    "description": "Represents an individual associated with a campaign or business. Contacts are linked to Accounts and can be involved in campaigns, sales processes, and customer support interactions. They contain key information like demographics, preferences, and engagement history, helping marketers target and personalize campaigns effectively.",
+    "fields": [
+      {
+        "apiname": "AccountId",
+        "description": "Lookup field to the Account. This field ensures that each Contact is associated with an Account, establishing the relationship between a Contact and their parent organization or company.",
+        "datatype": "Lookup (Account)",
+        "FieldLabel": "Account Id"
+      },
+      {
+        "apiname": "Contact_Type__c",
+        "description": "Text field used to categorize contacts for filtering and segmentation. Stores a label that identifies what group/type the contact belongs to (e.g., CRMantra, Customer, Prospect, Partner, Internal, Demo). Commonly used for campaign targeting and reporting.",
+        "datatype": "Text(100)",
+        "FieldLabel": "Contact Type"
+      },
+      {
+        "apiname": "AssistantName",
+        "description": "The name of the assistant associated with the contact, if applicable.",
+        "datatype": "Text (40)",
+        "FieldLabel": "Assistant Name"
+      },
+      {
+        "apiname": "AssistantPhone",
+        "description": "The phone number of the assistant associated with the contact, if applicable.",
+        "datatype": "Phone",
+        "FieldLabel": "Assistant Phone"
+      },
+      {
+        "apiname": "Birthdate",
+        "description": "The birthdate of the contact, useful for personalized marketing or demographic profiling.",
+        "datatype": "Date",
+        "FieldLabel": "Birthdate"
+      },
+      {
+        "apiname": "OwnerId",
+        "description": "Lookup field to the User who owns this contact record, typically the sales or support representative responsible for the contact.",
+        "datatype": "Lookup (User)",
+        "FieldLabel": "Owner Id"
+      },
+      {
+        "apiname": "CreatedById",
+        "description": "Lookup field to the User who created this contact record.",
+        "datatype": "Lookup (User)",
+        "FieldLabel": "Created By Id"
+      },
+      {
+        "apiname": "ContactSource",
+        "description": "Picklist field to capture the source from which the contact was acquired (e.g., web form, referral, event).",
+        "datatype": "Picklist",
+        "FieldLabel": "Contact Source"
+      },
+      {
+        "apiname": "Jigsaw",
+        "description": "A reference to the contact\u2019s data from Data.com (formerly Jigsaw), useful for data enrichment.",
+        "datatype": "Text (20)",
+        "FieldLabel": "Jigsaw"
+      },
+      {
+        "apiname": "Department",
+        "description": "The department within the contact\u2019s organization, which can be used for segmentation in campaigns.",
+        "datatype": "Text (80)",
+        "FieldLabel": "Department"
+      },
+      {
+        "apiname": "Description",
+        "description": "A long text area where additional details about the contact can be added, such as preferences, interests, or history with the organization.",
+        "datatype": "Long Text Area (32000)",
+        "FieldLabel": "Description"
+      },
+      {
+        "apiname": "DoNotCall",
+        "description": "A checkbox that indicates whether the contact has opted out of phone communication.",
+        "datatype": "Checkbox",
+        "FieldLabel": "Do Not Call"
+      },
+      {
+        "apiname": "Email",
+        "description": "The contact\u2019s email address, used for email marketing and communication.",
+        "datatype": "Email",
+        "FieldLabel": "Email"
+      },
+      {
+        "apiname": "HasOptedOutOfEmail",
+        "description": "A checkbox that indicates whether the contact has opted out of email communications.",
+        "datatype": "Checkbox",
+        "FieldLabel": "Has Opted Out Of Email"
+      },
+      {
+        "apiname": "Fax",
+        "description": "The contact\u2019s fax number, used for communication when necessary.",
+        "datatype": "Phone",
+        "FieldLabel": "Fax"
+      },
+      {
+        "apiname": "HasOptedOutOfFax",
+        "description": "A checkbox that indicates whether the contact has opted out of receiving fax communications.",
+        "datatype": "Checkbox",
+        "FieldLabel": "Has Opted Out Of Fax"
+      },
+      {
+        "apiname": "GenderIdentity",
+        "description": "A picklist field to capture the gender identity of the contact for demographic profiling or targeted marketing.",
+        "datatype": "Picklist",
+        "picklistValues": [
+          "Male",
+          "Female",
+          "Nonbinary",
+          "Not Listed"
+        ],
+        "FieldLabel": "Gender Identity"
+      },
+      {
+        "apiname": "HomePhone",
+        "description": "The home phone number of the contact, used for personal outreach or emergency contact.",
+        "datatype": "Phone",
+        "FieldLabel": "Home Phone"
+      },
+      {
+        "apiname": "IndividualId",
+        "description": "Lookup field to the Individual object. This field allows associating a contact with an individual entity, useful in cases where the contact is a member of a family or other grouping.",
+        "datatype": "Lookup (Individual)",
+        "FieldLabel": "Individual Id"
+      },
+      {
+        "apiname": "Languages__c",
+        "description": "The languages spoken by the contact, useful for targeted campaigns in different regions or for multilingual outreach.",
+        "datatype": "Text (100)",
+        "FieldLabel": "Languages"
+      },
+      {
+        "apiname": "LastModifiedById",
+        "description": "Lookup field to the User who last modified this contact record.",
+        "datatype": "Lookup (User)",
+        "FieldLabel": "Last Modified By Id"
+      },
+      {
+        "apiname": "LastCURequestDate",
+        "description": "Date and time when the contact made the last 'Stay-in-Touch' request, useful for managing communication frequency.",
+        "datatype": "Date/Time",
+        "FieldLabel": "Last CU Request Date"
+      },
+      {
+        "apiname": "LastCUUpdateDate",
+        "description": "Date and time when the contact's 'Stay-in-Touch' information was last updated, useful for tracking engagement.",
+        "datatype": "Date/Time",
+        "FieldLabel": "Last CU Update Date"
+      },
+      {
+        "apiname": "LeadSource",
+        "description": "Picklist field to capture the source of the lead that generated this contact, e.g., web, phone, event.",
+        "datatype": "Picklist",
+        "FieldLabel": "Lead Source"
+      },
+      {
+        "apiname": "Level__c",
+        "description": "Picklist field that can capture the contact's seniority level within their organization, useful for segmentation.",
+        "datatype": "Picklist",
+        "FieldLabel": "Level"
+      },
+      {
+        "apiname": "MailingAddress",
+        "description": "The mailing address of the contact, useful for direct mail campaigns or regional targeting.",
+        "datatype": "Address",
+        "FieldLabel": "Mailing Address"
+      },
+      {
+        "apiname": "MobilePhone",
+        "description": "The mobile phone number of the contact, used for SMS marketing and notifications.",
+        "datatype": "Phone",
+        "FieldLabel": "Mobile Phone"
+      },
+      {
+        "apiname": "Name",
+        "description": "The full name of the contact, typically a combination of the first and last name fields.",
+        "datatype": "Name",
+        "FieldLabel": "Name"
+      },
+      {
+        "apiname": "Salutation",
+        "description": "The contact\u2019s salutation, such as Mr., Mrs., or Dr., used for personalized communication.",
+        "datatype": "Picklist",
+        "FieldLabel": "Salutation"
+      },
+      {
+        "apiname": "FirstName",
+        "description": "The first name of the contact, used for personalized communications.",
+        "datatype": "Text (40)",
+        "FieldLabel": "First Name"
+      },
+      {
+        "apiname": "LastName",
+        "description": "The last name of the contact, used for personalization in communications.",
+        "datatype": "Text (80)",
+        "FieldLabel": "Last Name"
+      },
+      {
+        "apiname": "OtherAddress",
+        "description": "The contact\u2019s alternative address, if applicable, useful for direct mail or special campaigns.",
+        "datatype": "Address",
+        "FieldLabel": "Other Address"
+      },
+      {
+        "apiname": "OtherPhone",
+        "description": "The contact\u2019s other phone number, which can be used as an alternative for communication.",
+        "datatype": "Phone",
+        "FieldLabel": "Other Phone"
+      },
+      {
+        "apiname": "Phone",
+        "description": "The primary phone number of the contact, used for general communication.",
+        "datatype": "Phone",
+        "FieldLabel": "Phone"
+      },
+      {
+        "apiname": "Pronouns",
+        "description": "The pronouns used by the contact, helping to personalize communication and show respect for identity.",
+        "datatype": "Picklist",
+        "FieldLabel": "Pronouns"
+      },
+      {
+        "apiname": "ReportsToId",
+        "description": "Lookup field to the contact\u2019s supervisor or manager, providing hierarchical context.",
+        "datatype": "Lookup (Contact)",
+        "FieldLabel": "Reports To Id"
+      },
+      {
+        "apiname": "Title",
+        "description": "The job title or position of the contact, used for segmentation or personalized outreach.",
+        "datatype": "Text (128)",
+        "FieldLabel": "Title"
+      },
+      {
+        "apiname": "Start_Date__c",
+        "description": "The date when the contact's employment/role started at the company. DO NOT use this field for filtering active/current contacts - only End_Date__c is used for that purpose. This field is NOT related to CampaignMember.Status.",
+        "datatype": "Date",
+        "FieldLabel": "Start_Date"
+      },
+      {
+        "apiname": "End_Date__c",
+        "description": "The date when the contact's employment/role ends at the company. ACTIVE CONTACT FILTER: You MUST use BOTH conditions with OR: WHERE (End_Date__c = null OR End_Date__c >= TODAY). This includes contacts with no end date (null) AND contacts with future end dates (>= TODAY). NEVER use only 'End_Date__c = null' - you will miss active contacts with future end dates. If user says 'ALL contacts', do NOT apply any filter.condition must be (End_Date__c = null OR End_Date__c >= TODAY) not give it partially completely need to be present ****IMPORTANT****",
+        "datatype": "Date",
+        "FieldLabel": "End_Date"
+      }
+    ]
+  },
+  {
+    "object": "Campaign",
+    "description": "Represents a marketing campaign used for tracking and organizing marketing efforts, such as product promotions, events, or outreach programs. The Campaign object allows for tracking costs, revenue, responses, and related records like leads, opportunities, and contacts.",
+    "fields": [
+      {
+        "FieldLabel": "Active",
+        "apiname": "IsActive",
+        "description": "Indicates whether the campaign is currently active. If the campaign is active, it will be used in marketing operations; otherwise, it is archived.",
+        "datatype": "Checkbox"
+      },
+      {
+        "FieldLabel": "Actual Cost in Campaign",
+        "apiname": "ActualCost",
+        "description": "The actual cost of the campaign. This value is updated to reflect the true expenses incurred during the campaign's execution.",
+        "datatype": "Currency (18, 0)"
+      },
+      {
+        "FieldLabel": "Actual Cost in Hierarchy",
+        "apiname": "HierarchyActualCost",
+        "description": "The total actual cost of the campaign including costs from its child campaigns, representing the full scope of expenses.",
+        "datatype": "Currency (18, 0)"
+      },
+      {
+        "FieldLabel": "Budgeted Cost in Campaign",
+        "apiname": "BudgetedCost",
+        "description": "The initial budget allocated to the campaign, representing the planned expenses.",
+        "datatype": "Currency (18, 0)"
+      },
+      {
+        "FieldLabel": "Budgeted Cost in Hierarchy",
+        "apiname": "HierarchyBudgetedCost",
+        "description": "The total budget of the campaign including the budgets of its child campaigns, representing the overall financial scope of the campaign.",
+        "datatype": "Currency (18, 0)"
+      },
+      {
+        "FieldLabel": "Campaign Member Type",
+        "apiname": "CampaignMemberRecordTypeId",
+        "description": "Lookup to the Record Type that defines the type of campaign member (e.g., contact, lead). This field helps differentiate different types of campaign members in a marketing effort.",
+        "datatype": "Lookup (Record Type)"
+      },
+      {
+        "FieldLabel": "Campaign Name",
+        "apiname": "Name",
+        "description": "The name of the campaign, used to identify and track the campaign within Salesforce. Typically reflects the campaign's focus or goal.",
+        "datatype": "Text (80)",
+        "needvalue": true
+      },
+      {
+        "FieldLabel": "Campaign Owner",
+        "apiname": "OwnerId",
+        "description": "Lookup to the User who owns the campaign. The campaign owner is typically the person responsible for managing and executing the campaign.",
+        "datatype": "Lookup (User)"
+      },
+      {
+        "FieldLabel": "Contacts in Campaign",
+        "apiname": "NumberOfContacts",
+        "description": "The total number of contacts associated with the campaign. This field can be used to track how many people are being targeted in the campaign.",
+        "datatype": "Number (9, 0)"
+      },
+      {
+        "FieldLabel": "Contacts in Hierarchy",
+        "apiname": "HierarchyNumberOfContacts",
+        "description": "The total number of contacts involved in the campaign including those from child campaigns, providing a full view of the campaign\u2019s reach.",
+        "datatype": "Number (9, 0)"
+      },
+      {
+        "FieldLabel": "Converted Leads in Campaign",
+        "apiname": "NumberOfConvertedLeads",
+        "description": "The number of leads that were converted as a result of the campaign, tracking the campaign\u2019s success in generating sales-qualified leads.",
+        "datatype": "Number (9, 0)"
+      },
+      {
+        "FieldLabel": "Converted Leads in Hierarchy",
+        "apiname": "HierarchyNumberOfConvertedLeads",
+        "description": "The number of converted leads from the parent campaign and its child campaigns, giving a comprehensive view of lead conversion across multiple campaign levels.",
+        "datatype": "Number (9, 0)"
+      },
+      {
+        "FieldLabel": "Created By",
+        "apiname": "CreatedById",
+        "description": "Lookup to the User who created the campaign record, typically used for auditing and tracking the record's origin.",
+        "datatype": "Lookup (User)"
+      },
+      {
+        "FieldLabel": "Description",
+        "apiname": "Description",
+        "description": "A long text field where additional information or notes about the campaign can be stored, such as goals, target audience, or campaign strategy.",
+        "datatype": "Long Text Area (32000)"
+      },
+      {
+        "FieldLabel": "Email Template",
+        "apiname": "Email_template__c",
+        "description": "Stores the email template identifier to be used for this Campaign (e.g. the template ID for campaign email communications).",
+        "datatype": "Picklist",
+        "needvalue": true,
+        "defaultValue": "3 - Marketing email",
+        "picklistValues": [
+          "3 - Marketing email",
+          "4 - Vicennium Celebration",
+          " 5 - AI Innovation Email"
+        ]
+      },
+      {
+        "FieldLabel": "End Date",
+        "apiname": "EndDate",
+        "description": "The end date of the campaign, indicating when the campaign is scheduled to close.",
+        "datatype": "Date",
+        "defaultValue": "StartDate + 30 days",
+        "needvalue": true
+      },
+      {
+        "FieldLabel": "Expected Response (%)",
+        "apiname": "ExpectedResponse",
+        "description": "The expected response rate for the campaign, usually expressed as a percentage. This helps measure the anticipated effectiveness of the campaign.",
+        "datatype": "Percent (8, 2)"
+      },
+      {
+        "FieldLabel": "Expected Revenue in Campaign",
+        "apiname": "ExpectedRevenue",
+        "description": "The projected revenue that the campaign is expected to generate, based on forecasts or assumptions.",
+        "datatype": "Currency (18, 0)"
+      },
+      {
+        "FieldLabel": "Expected Revenue in Hierarchy",
+        "apiname": "HierarchyExpectedRevenue",
+        "description": "The total expected revenue of the campaign, including revenue from child campaigns, giving a full picture of the financial expectations for the entire campaign hierarchy.",
+        "datatype": "Currency (18, 0)"
+      },
+      {
+        "FieldLabel": "Last Modified By",
+        "apiname": "LastModifiedById",
+        "description": "Lookup to the User who last modified the campaign record, useful for auditing and tracking changes.",
+        "datatype": "Lookup (User)"
+      },
+      {
+        "FieldLabel": "Leads in Campaign",
+        "apiname": "NumberOfLeads",
+        "description": "The total number of leads associated with the campaign, indicating how many individuals were targeted through lead generation activities.",
+        "datatype": "Number (9, 0)"
+      },
+      {
+        "FieldLabel": "Leads in Hierarchy",
+        "apiname": "HierarchyNumberOfLeads",
+        "description": "The total number of leads involved in the campaign including those from child campaigns, providing a full view of lead volume across the hierarchy.",
+        "datatype": "Number (9, 0)"
+      },
+      {
+        "FieldLabel": "Num Sent in Campaign",
+        "apiname": "NumberSent",
+        "description": "The number of messages sent as part of this campaign (system-calculated where applicable).",
+        "datatype": "Number (18, 0)"
+      },
+      {
+        "FieldLabel": "Num Sent in Hierarchy",
+        "apiname": "HierarchyNumberSent",
+        "description": "The number of messages sent for the parent campaign and its child campaigns combined (system-calculated where applicable).",
+        "datatype": "Number (18, 0)"
+      },
+      {
+        "FieldLabel": "Opportunities in Campaign",
+        "apiname": "NumberOfOpportunities",
+        "description": "The number of opportunities generated by the campaign, reflecting the campaign\u2019s impact on sales.",
+        "datatype": "Number (9, 0)"
+      },
+      {
+        "FieldLabel": "Opportunities in Hierarchy",
+        "apiname": "HierarchyNumberOfOpportunities",
+        "description": "The number of opportunities generated by the campaign including child campaigns, providing a full view across the campaign hierarchy.",
+        "datatype": "Number (9, 0)"
+      },
+      {
+        "FieldLabel": "Parent Campaign",
+        "apiname": "ParentId",
+        "description": "Lookup to the Parent Campaign, if this campaign is part of a hierarchy. This allows for campaign rollups to track data across parent-child relationships.",
+        "datatype": "Lookup (Campaign)"
+      },
+      {
+        "FieldLabel": "Responses in Campaign",
+        "apiname": "NumberOfResponses",
+        "description": "The number of responses received from contacts or leads as part of the campaign. This could be an indicator of engagement or interest in the campaign.",
+        "datatype": "Number (9, 0)"
+      },
+      {
+        "FieldLabel": "Responses in Hierarchy",
+        "apiname": "HierarchyNumberOfResponses",
+        "description": "The number of responses received across the parent campaign and its child campaigns combined.",
+        "datatype": "Number (9, 0)"
+      },
+      {
+        "FieldLabel": "Start Date",
+        "apiname": "StartDate",
+        "description": "The start date of the campaign, indicating when the campaign activities are scheduled to begin.",
+        "datatype": "Date",
+        "defaultValue": "Today + 7 days",
+        "needvalue": true
+      },
+      {
+        "FieldLabel": "Status",
+        "apiname": "Status",
+        "description": "The current status of the campaign. This field helps track the progress of the campaign.",
+        "datatype": "Picklist",
+        "defaultValue": "Planned",
+        "needvalue": true,
+        "picklistValues": [
+          "Planned",
+          "In Progress",
+          "Completed",
+          "Aborted"
+        ]
+      },
+      {
+        "FieldLabel": "Type",
+        "apiname": "Type",
+        "description": "The type of the campaign used for categorization and reporting purposes.",
+        "datatype": "Picklist",
+        "picklistValues": [
+          "Conference",
+          "Webinar",
+          "Trade Show",
+          "Public Relations",
+          "Partners",
+          "Referral Program",
+          "Advertisement",
+          "Banner Ads",
+          "Direct Mail",
+          "Email",
+          "Telemarketing",
+          "Other"
+        ]
+      },
+      {
+        "FieldLabel": "Value Opportunities in Campaign",
+        "apiname": "AmountAllOpportunities",
+        "description": "The total value of all opportunities associated with the campaign, showing the overall potential revenue generated by the campaign\u2019s opportunities.",
+        "datatype": "Currency (18, 0)"
+      },
+      {
+        "FieldLabel": "Value Opportunities in Hierarchy",
+        "apiname": "HierarchyAmountAllOpportunities",
+        "description": "The total value of all opportunities associated with the parent campaign and its child campaigns combined.",
+        "datatype": "Currency (18, 0)"
+      },
+      {
+        "FieldLabel": "Value Won Opportunities in Campaign",
+        "apiname": "AmountWonOpportunities",
+        "description": "The total value of the opportunities that have been won as a result of the campaign, providing a view of the campaign's success in generating actual sales.",
+        "datatype": "Currency (18, 0)"
+      },
+      {
+        "FieldLabel": "Value Won Opportunities in Hierarchy",
+        "apiname": "HierarchyAmountWonOpportunities",
+        "description": "The total value of all won opportunities across the parent campaign and its child campaigns combined.",
+        "datatype": "Currency (18, 0)"
+      },
+      {
+        "FieldLabel": "Won Opportunities in Campaign",
+        "apiname": "NumberOfWonOpportunities",
+        "description": "The number of opportunities that were won during the campaign, representing a successful outcome.",
+        "datatype": "Number (9, 0)"
+      },
+      {
+        "FieldLabel": "Won Opportunities in Hierarchy",
+        "apiname": "HierarchyNumberOfWonOpportunities",
+        "description": "The number of won opportunities across the parent campaign and its child campaigns combined.",
+        "datatype": "Number (9, 0)"
+      }
+    ]
+  },
+  {
+    "object": "CampaignMember",
+    "exclude_from_chat_links": true,
+    "description": "Represents an individual\u2019s association with a campaign. A CampaignMember object links a Contact, Lead, or Person Account with a Campaign, tracking their participation, response status, and engagement with the marketing effort.",
+    "fields": [
+      {
+        "apiname": "CampaignId",
+        "description": "Lookup field to the associated Campaign. This links the campaign member to the specific Campaign they are a part of.",
+        "datatype": "Lookup (Campaign)",
+        "FieldLabel": "Campaign Id"
+      },
+      {
+        "apiname": "City",
+        "description": "The city where the campaign member resides or is located. This can be useful for regional targeting and segmentation in marketing efforts.",
+        "datatype": "Text (40)",
+        "FieldLabel": "City"
+      },
+      {
+        "apiname": "CompanyOrAccount",
+        "description": "The name of the company or organization the campaign member belongs to, representing their associated **Account** in Salesforce.",
+        "datatype": "Text (255)",
+        "FieldLabel": "Company Or Account"
+      },
+      {
+        "apiname": "ContactId",
+        "description": "Lookup field to the Contact associated with this Campaign Member. This links a contact to a specific campaign, tracking their engagement and participation.",
+        "datatype": "Lookup (Contact)",
+        "FieldLabel": "Contact Id"
+      },
+      {
+        "apiname": "Country",
+        "description": "The country where the campaign member is located. This field can be used for geographic segmentation and international marketing strategies.",
+        "datatype": "Text (80)",
+        "FieldLabel": "Country"
+      },
+      {
+        "apiname": "CreatedById",
+        "description": "Lookup field to the User who created the Campaign Member record. This is used for tracking record ownership and auditing.",
+        "datatype": "Lookup (User)",
+        "FieldLabel": "Created By Id"
+      },
+      {
+        "apiname": "CreatedDate",
+        "description": "The date and time when the Campaign Member record was created. This can be used for tracking when a contact or lead was associated with the campaign.",
+        "datatype": "Date/Time",
+        "FieldLabel": "Created Date"
+      },
+      {
+        "apiname": "Description",
+        "description": "A long text field that can store additional information about the Campaign Member, such as notes on their participation, behavior, or engagement level in the campaign.",
+        "datatype": "Long Text Area (32000)",
+        "FieldLabel": "Description"
+      },
+      {
+        "apiname": "DoNotCall",
+        "description": "Checkbox indicating whether the campaign member has opted out of phone calls. This helps comply with privacy regulations and user preferences.",
+        "datatype": "Checkbox",
+        "FieldLabel": "Do Not Call"
+      },
+      {
+        "apiname": "Email",
+        "description": "The email address of the campaign member, used for email communications and digital marketing efforts.",
+        "datatype": "Email",
+        "FieldLabel": "Email"
+      },
+      {
+        "apiname": "HasOptedOutOfEmail",
+        "description": "A checkbox indicating whether the campaign member has opted out of receiving email communications as part of the campaign.",
+        "datatype": "Checkbox",
+        "FieldLabel": "Has Opted Out Of Email"
+      },
+      {
+        "apiname": "Fax",
+        "description": "The fax number of the campaign member, used for fax-based marketing or notifications, if applicable.",
+        "datatype": "Phone",
+        "FieldLabel": "Fax"
+      },
+      {
+        "apiname": "HasOptedOutOfFax",
+        "description": "A checkbox indicating whether the campaign member has opted out of receiving fax communications as part of the campaign.",
+        "datatype": "Checkbox",
+        "FieldLabel": "Has Opted Out Of Fax"
+      },
+      {
+        "apiname": "FirstName",
+        "description": "The first name of the campaign member, used for personalization in email and other marketing communications.",
+        "datatype": "Text (40)",
+        "FieldLabel": "First Name"
+      },
+      {
+        "apiname": "FirstRespondedDate",
+        "description": "The date when the campaign member first responded to the campaign, useful for tracking engagement and follow-up activities.",
+        "datatype": "Date",
+        "FieldLabel": "First Responded Date"
+      },
+      {
+        "apiname": "LastModifiedById",
+        "description": "Lookup field to the User who last modified the Campaign Member record. This field helps with record auditing and tracking changes over time.",
+        "datatype": "Lookup (User)",
+        "FieldLabel": "Last Modified By Id"
+      },
+      {
+        "apiname": "LastModifiedDate",
+        "description": "The date and time when the Campaign Member record was last modified. This is useful for tracking the most recent updates to engagement and status.",
+        "datatype": "Date/Time",
+        "FieldLabel": "Last Modified Date"
+      },
+      {
+        "apiname": "LastName",
+        "description": "The last name of the campaign member, used for personalization and identifying the individual within the campaign.",
+        "datatype": "Text (80)",
+        "FieldLabel": "Last Name"
+      },
+      {
+        "apiname": "LeadId",
+        "description": "Lookup field to the Lead associated with this Campaign Member. This is relevant for campaigns that target Leads as well as Contacts.",
+        "datatype": "Lookup (Lead)",
+        "FieldLabel": "Lead Id"
+      },
+      {
+        "apiname": "LeadSource",
+        "description": "Picklist field indicating the source from which the Lead or Contact was acquired. This helps measure campaign success by tracking lead generation sources.",
+        "datatype": "Picklist",
+        "picklistValues": [
+          "Web",
+          "Phone Inquiry",
+          "Partner Referral",
+          "Purchased List",
+          "Other"
+        ],
+        "FieldLabel": "Lead Source"
+      },
+      {
+        "apiname": "MobilePhone",
+        "description": "The mobile phone number of the campaign member, useful for SMS marketing or personalized mobile outreach.",
+        "datatype": "Phone",
+        "FieldLabel": "Mobile Phone"
+      },
+      {
+        "apiname": "Phone",
+        "description": "The primary phone number of the campaign member, used for phone-based outreach or communication.",
+        "datatype": "Phone",
+        "FieldLabel": "Phone"
+      },
+      {
+        "apiname": "HasResponded",
+        "description": "Checkbox indicating whether the campaign member has responded to the campaign, helping to track engagement and conversion.",
+        "datatype": "Checkbox",
+        "FieldLabel": "Has Responded"
+      },
+      {
+        "apiname": "Salutation",
+        "description": "The salutation of the campaign member used for respectful communication in personalized marketing.",
+        "datatype": "Picklist",
+        "picklistValues": [
+          "Mr.",
+          "Ms.",
+          "Mrs.",
+          "Dr.",
+          "Prof.",
+          "Mx."
+        ],
+        "FieldLabel": "Salutation"
+      },
+      {
+        "apiname": "State",
+        "description": "The state or province where the campaign member is located. This field can be used for regional targeting in campaigns.",
+        "datatype": "Text (80)",
+        "FieldLabel": "State"
+      },
+      {
+        "apiname": "Status",
+        "description": "Picklist field that tracks the EMAIL CAMPAIGN ENGAGEMENT status of the campaign member (e.g., whether the email was Sent, Received, or they Responded). IMPORTANT: This field is NOT for employment status. To filter contacts who are currently working at the company, use the Contact object's Start_Date__c and End_Date__c fields instead. Values like 'Sent', 'Responded', 'Planned' indicate email campaign activity, not whether someone is actively employed.",
+        "datatype": "Picklist",
+        "picklistValues": [
+          "Planned",
+          "Sent",
+          " Received",
+          " Responded "
+        ],
+        "FieldLabel": "Status"
+      },
+      {
+        "apiname": "Street",
+        "description": "The street address of the campaign member, useful for direct mail campaigns or location-based outreach.",
+        "datatype": "Text (255)",
+        "FieldLabel": "Street"
+      },
+      {
+        "apiname": "Title",
+        "description": "The job title of the campaign member, useful for segmentation and targeting based on their position within an organization.",
+        "datatype": "Text (128)",
+        "FieldLabel": "Title"
+      },
+      {
+        "apiname": "PostalCode",
+        "description": "The postal code of the campaign member\u2019s location, useful for geographic segmentation and regional targeting in campaigns.",
+        "datatype": "Text (20)",
+        "FieldLabel": "Postal Code"
+      }
+    ]
+  },
+  {
+    "object": "CampaignMemberStatus",
+    "exclude_from_chat_links": true,
+    "description": "Represents the set of allowed Campaign Member Status values for a specific Campaign. These records control what values appear in the Campaign Member 'Status' picklist for that Campaign, and which one is the default.",
+    "fields": [
+      {
+        "apiname": "Id",
+        "description": "System-generated unique identifier for the Campaign Member Status record.",
+        "datatype": "Id",
+        "FieldLabel": "Id"
+      },
+      {
+        "apiname": "IsDeleted",
+        "description": "Indicates whether the record has been deleted (soft-deleted).",
+        "datatype": "Checkbox",
+        "FieldLabel": "Is Deleted"
+      },
+      {
+        "apiname": "CampaignId",
+        "description": "Lookup to the Campaign that this status set belongs to. Status values are stored per Campaign.",
+        "datatype": "Lookup (Campaign)",
+        "needValue": true,
+        "FieldLabel": "Campaign Id"
+      },
+      {
+        "apiname": "Label",
+        "description": "The status label shown to users in the Campaign Member Status dropdown (for this Campaign). Example: Draft, Sent, Responded.",
+        "datatype": "Text",
+        "needValue": true,
+        "FieldLabel": "Label"
+      },
+      {
+        "apiname": "SortOrder",
+        "description": "Controls the display order of statuses in the Campaign Member Status dropdown (lower numbers appear first).",
+        "datatype": "Number",
+        "needValue": true,
+        "FieldLabel": "Sort Order"
+      },
+      {
+        "apiname": "IsDefault",
+        "description": "If true, this status becomes the default value when a new Campaign Member is created for this Campaign. Only one status per Campaign should be marked as default.",
+        "datatype": "Checkbox",
+        "needValue": true,
+        "FieldLabel": "Is Default"
+      },
+      {
+        "apiname": "HasResponded",
+        "description": "If true, this status is treated as a 'Responded' status for campaign reporting and response metrics.",
+        "datatype": "Checkbox",
+        "needValue": true,
+        "FieldLabel": "Has Responded"
+      }
+    ]
+  },
+  {
+    "object": "Lead",
+    "description": "Represents a potential sales opportunity or prospect. Leads are typically used to track unqualified potential customers, and once qualified, they are converted into an Account, Contact, or Opportunity.",
+    "fields": [
+      {
+        "apiname": "Address",
+        "description": "The mailing address of the lead. This field helps in targeting leads for location-based campaigns.",
+        "datatype": "Address",
+        "FieldLabel": "Address"
+      },
+      {
+        "apiname": "AnnualRevenue",
+        "description": "The annual revenue of the company associated with the lead. Used for segmenting leads based on company size.",
+        "datatype": "Currency (18, 0)",
+        "FieldLabel": "Annual Revenue"
+      },
+      {
+        "apiname": "Company",
+        "description": "The name of the company associated with the lead, useful for B2B sales and identifying target organizations.",
+        "datatype": "Text (255)",
+        "FieldLabel": "Company"
+      },
+      {
+        "apiname": "CompanyDunsNumber",
+        "description": "The D-U-N-S number for the company, which is a unique identifier for businesses used in global databases.",
+        "datatype": "Text (9)",
+        "FieldLabel": "Company Duns Number"
+      },
+      {
+        "apiname": "CreatedById",
+        "description": "Lookup to the User who created the lead record. Helps track lead ownership and record creation history.",
+        "datatype": "Lookup (User)",
+        "FieldLabel": "Created By Id"
+      },
+      {
+        "apiname": "CurrentGenerators__c",
+        "description": "Custom field capturing the current generators or products of interest for the lead, useful for tailoring outreach strategies.",
+        "datatype": "Text (100)",
+        "FieldLabel": "Current Generators"
+      },
+      {
+        "apiname": "DandbCompanyId",
+        "description": "Lookup to the D&B Company record, which provides additional business data about the lead from Dun & Bradstreet.",
+        "datatype": "Lookup (D&B Company)",
+        "FieldLabel": "Dandb Company Id"
+      },
+      {
+        "apiname": "Jigsaw",
+        "description": "The Data.com key for the lead, used to enrich the lead data from Data.com (now a part of Salesforce).",
+        "datatype": "Text (20)",
+        "FieldLabel": "Jigsaw"
+      },
+      {
+        "apiname": "Description",
+        "description": "A long text field used to store detailed notes or additional information about the lead, such as interests, needs, or history.",
+        "datatype": "Long Text Area (32000)",
+        "FieldLabel": "Description"
+      },
+      {
+        "apiname": "DoNotCall",
+        "description": "Checkbox indicating whether the lead has opted out of phone calls. Important for compliance and respecting customer preferences.",
+        "datatype": "Checkbox",
+        "FieldLabel": "Do Not Call"
+      },
+      {
+        "apiname": "Email",
+        "description": "The email address of the lead. Used for **email marketing**, outreach, and nurturing.",
+        "datatype": "Email",
+        "FieldLabel": "Email"
+      },
+      {
+        "apiname": "HasOptedOutOfEmail",
+        "description": "A checkbox indicating whether the lead has opted out of receiving email communications.",
+        "datatype": "Checkbox",
+        "FieldLabel": "Has Opted Out Of Email"
+      },
+      {
+        "apiname": "Fax",
+        "description": "The fax number for the lead, used for fax-based marketing (less common today, but may still be in use in some industries).",
+        "datatype": "Phone",
+        "FieldLabel": "Fax"
+      },
+      {
+        "apiname": "HasOptedOutOfFax",
+        "description": "A checkbox indicating whether the lead has opted out of receiving fax communications.",
+        "datatype": "Checkbox",
+        "FieldLabel": "Has Opted Out Of Fax"
+      },
+      {
+        "apiname": "GenderIdentity",
+        "description": "Picklist field capturing the gender identity of the lead, useful for demographic segmentation in campaigns.",
+        "datatype": "Picklist",
+        "picklistValues": [
+          "Male",
+          "Female",
+          "Nonbinary",
+          "Not Listed"
+        ],
+        "FieldLabel": "Gender Identity"
+      },
+      {
+        "apiname": "IndividualId",
+        "description": "Lookup to the Individual object. This field allows associating the lead with an individual entity, useful for personal outreach.",
+        "datatype": "Lookup (Individual)",
+        "FieldLabel": "Individual Id"
+      },
+      {
+        "apiname": "Industry",
+        "description": "The industry in which the lead operates. This is useful for B2B sales teams for segmenting leads by sector or industry.",
+        "datatype": "Picklist",
+        "FieldLabel": "Industry"
+      },
+      {
+        "apiname": "LastModifiedById",
+        "description": "Lookup to the User who last modified the lead record. This helps with tracking changes to the record and user accountability.",
+        "datatype": "Lookup (User)",
+        "FieldLabel": "Last Modified By Id"
+      },
+      {
+        "apiname": "LastTransferDate",
+        "description": "The last date the lead was transferred between users or sales representatives.",
+        "datatype": "Date",
+        "FieldLabel": "Last Transfer Date"
+      },
+      {
+        "apiname": "OwnerId",
+        "description": "Lookup to the User or Group who owns the lead record, representing the sales rep or team responsible for the lead.",
+        "datatype": "Lookup (User, Group)",
+        "FieldLabel": "Owner Id"
+      },
+      {
+        "apiname": "LeadSource",
+        "description": "Picklist field indicating the source from which the lead was acquired  . This helps track lead generation effectiveness.",
+        "datatype": "Picklist",
+        "picklistValues": [
+          "Web",
+          "Phone Inquiry",
+          "Partner Referral",
+          "Purchased List",
+          "Other"
+        ],
+        "FieldLabel": "Lead Source"
+      },
+      {
+        "apiname": "Status",
+        "description": "Picklist field that tracks the current status of the lead (e.g., New, Working, Converted). This field is essential for managing lead pipeline.",
+        "datatype": "Picklist",
+        "picklistValues": [
+          "Open - Not Contacted",
+          "Working - Contacted",
+          "Closed - Converted",
+          "Closed - Not Converted"
+        ],
+        "FieldLabel": "Status"
+      },
+      {
+        "apiname": "MobilePhone",
+        "description": "The mobile phone number of the lead, used for SMS marketing, mobile outreach, and quick communication.",
+        "datatype": "Phone",
+        "FieldLabel": "Mobile Phone"
+      },
+      {
+        "apiname": "Name",
+        "description": "The full name of the lead, typically a combination of the first and last name fields, used for personalization and identification.",
+        "datatype": "Name",
+        "FieldLabel": "Name"
+      },
+      {
+        "apiname": "Salutation",
+        "description": "The salutation used when addressing the lead in communications.",
+        "datatype": "Picklist",
+        "picklistValues": [
+          "Mr.",
+          "Ms.",
+          "Mrs.",
+          "Dr.",
+          "Prof.",
+          "Mx."
+        ],
+        "FieldLabel": "Salutation"
+      },
+      {
+        "apiname": "FirstName",
+        "description": "The first name of the lead, used for personalized communications and outreach.",
+        "datatype": "Text (40)",
+        "FieldLabel": "First Name"
+      },
+      {
+        "apiname": "LastName",
+        "description": "The last name of the lead, used for addressing the lead and personalizing communications.",
+        "datatype": "Text (80)",
+        "FieldLabel": "Last Name"
+      },
+      {
+        "apiname": "NumberOfEmployees",
+        "description": "The number of employees in the lead's company, used to segment leads by company size for targeting purposes.",
+        "datatype": "Number (8, 0)",
+        "FieldLabel": "Number Of Employees"
+      },
+      {
+        "apiname": "NumberofLocations__c",
+        "description": "The number of locations for the lead\u2019s company, helping to understand the scale of the business.",
+        "datatype": "Number (3, 0)",
+        "FieldLabel": "Numberof Locations"
+      },
+      {
+        "apiname": "Phone",
+        "description": "The primary phone number of the lead, used for outreach and communication.",
+        "datatype": "Phone",
+        "FieldLabel": "Phone"
+      },
+      {
+        "apiname": "Primary__c",
+        "description": "Picklist field indicating whether this lead is considered a primary contact for the associated company or account.",
+        "datatype": "Picklist",
+        "picklistValues": [
+          "No",
+          "Yes"
+        ],
+        "FieldLabel": "Primary"
+      },
+      {
+        "apiname": "ProductInterest__c",
+        "description": "Picklist to capture the products or services the lead is interested in, useful for segmentation and targeted sales outreach.",
+        "datatype": "Picklist",
+        "picklistValues": [
+          "GC1000 series",
+          "GC5000 series",
+          "GC3000 series"
+        ],
+        "FieldLabel": "Product Interest"
+      },
+      {
+        "apiname": "Pronouns",
+        "description": "Picklist to capture the pronouns used by the lead, helping to personalize communication and show respect for identity.",
+        "datatype": "Picklist",
+        "picklistValues": [
+          "He/Him",
+          "She/Her",
+          "They/Them",
+          "He/They",
+          "She/They",
+          "Not Listed"
+        ],
+        "FieldLabel": "Pronouns"
+      },
+      {
+        "apiname": "Rating",
+        "description": "Picklist field to rate the lead's quality or readiness for conversion, useful for prioritizing leads in the sales process.",
+        "datatype": "Picklist",
+        "picklistValues": [
+          "Hot",
+          "Warm",
+          "Cold"
+        ],
+        "FieldLabel": "Rating"
+      },
+      {
+        "apiname": "SICCode__c",
+        "description": "The Standard Industry Classification (SIC) code for the lead's company, used for segmenting leads by industry or vertical.",
+        "datatype": "Text (15)",
+        "FieldLabel": "SIC Code"
+      },
+      {
+        "apiname": "Title",
+        "description": "The job title of the lead, helping to personalize outreach and provide context on their role within the organization.",
+        "datatype": "Text (128)",
+        "FieldLabel": "Title"
+      },
+      {
+        "apiname": "Website",
+        "description": "The website URL for the lead\u2019s company, useful for researching the lead and understanding their business.",
+        "datatype": "URL(255)",
+        "FieldLabel": "Website"
+      }
+    ]
+  },
+  {
+    "object": "Account",
+    "description": "An Account represents a company, individual, or another entity associated with your organization. It serves as a central repository for tracking customer data, managing business interactions, and integrating other records like contracts, opportunities, and related activities. The Account object is critical for establishing long-term relationships, sales cycles, and ensuring personalized engagement based on business metrics and attributes.",
+    "fields": [
+      {
+        "apiname": "Name",
+        "description": "The name of the account. This field is essential for identifying and referencing the account across all business processes and reports. It is used in customer-related reports and helps in differentiating one account from another within the organization’s Salesforce system.",
+        "datatype": "Text(255)"
+      },
+      {
+        "apiname": "AccountNumber",
+        "description": "A unique identifier for the account, usually assigned by the organization for internal purposes. This helps in referencing the account within Salesforce for reporting, contract management, and ensuring that any activity related to the account is easily traceable across multiple systems.",
+        "datatype": "Text(40)"
+      },
+      {
+        "apiname": "RecordTypeId",
+        "description": "This field defines the type of account within Salesforce, distinguishing between types such as customers, partners, prospects, or others. It allows the organization to tailor business processes, reporting, and workflows based on the nature of the account.",
+        "datatype": "Record Type"
+      },
+      {
+        "apiname": "Site",
+        "description": "The physical location or site associated with the account. This could include the address of an office, manufacturing facility, or retail store. The location might influence business decisions, such as product distribution, regional pricing, or customized offerings based on the site’s specific needs.",
+        "datatype": "Text(80)"
+      },
+      {
+        "apiname": "AccountSource",
+        "description": "Indicates the origin of the account, such as through a referral, marketing campaign, or inbound inquiry. Tracking the source of an account is vital for analyzing the effectiveness of different lead-generation channels and strategies, providing valuable insights into the ROI of marketing activities.",
+        "datatype": "Picklist",
+        "picklistValues": [
+          "Advertisement",
+          "Employee Referral",
+          "External Referral",
+          "Partner",
+          "Public Relations",
+          "Seminar - Internal",
+          "Seminar - Partner",
+          "Trade Show",
+          "Web",
+          "Word of mouth",
+          "Other"
+        ]
+      },
+      {
+        "apiname": "AnnualRevenue",
+        "description": "The total annual revenue of the account, expressed in the specified currency. This metric helps in determining the size and financial potential of the account. Higher annual revenue might influence business strategies, contract terms, and discounting decisions during contract renewals or new deals.",
+        "datatype": "Currency(18, 0)"
+      },
+      {
+        "apiname": "BillingAddress__c",
+        "description": "This formula field stores the account's billing address as a text string, which might be useful for automation, processing, or reporting purposes. It consolidates address information from multiple fields and presents it as a single, easily-accessible value. This field is especially important for invoicing, billing cycles, and contract renewals where the billing address is critical.",
+        "datatype": "Formula (Text)"
+      },
+      {
+        "apiname": "BillingAddress",
+        "description": "The complete billing address associated with the account, including street, city, state, and postal code. This field is crucial for invoicing, delivering physical goods or services, and providing proper shipping and billing instructions. It is also used for generating reports and analytics related to sales performance and business activity by location.",
+        "datatype": "Address"
+      },
+      {
+        "apiname": "ChannelProgramLevelName",
+        "description": "The level within the channel program that the account is associated with. For example, it could indicate whether the account is part of a bronze, silver, or gold tier. This categorization helps in determining how different levels of customers are treated in terms of discounts, access to exclusive offers, and the level of customer support they receive.",
+        "datatype": "Text(255)"
+      },
+      {
+        "apiname": "ChannelProgramName",
+        "description": "The name of the specific channel program associated with the account. This program might offer the account access to specific incentives, rebates, or partner opportunities. Tracking this allows the business to segment accounts based on their involvement in different channel programs and optimize the renewal or upsell process accordingly.",
+        "datatype": "Text(255)"
+      },
+      {
+        "apiname": "IsCustomerPortal",
+        "description": "Indicates whether the account is enabled for portal access. If true, the account has the ability to manage certain interactions, such as reviewing contracts, submitting support tickets, or accessing account-related data, through a secure, self-service portal. This is particularly important for accounts that prefer managing their engagement independently or are involved in complex contract renewals.",
+        "datatype": "Checkbox"
+      },
+      {
+        "apiname": "Jigsaw",
+        "description": "A unique identifier for the account within Data.com (formerly Jigsaw). This identifier can be used to link and enrich account data by pulling in additional information from external sources, providing a more complete profile of the account for strategic decision-making and outreach.",
+        "datatype": "Text(20)"
+      },
+      {
+        "apiname": "Description",
+        "description": "A long-form text field that provides detailed information about the account’s business, operations, history, or other pertinent context. This description can help internal teams understand the nuances of working with the account, including any specific conditions or considerations for contract renewals or business development.",
+        "datatype": "Long Text Area(32000)"
+      },
+      {
+        "apiname": "Tier",
+        "description": "This field denotes the tier or classification of the account, which can have a significant impact on how business processes are managed. Tiers may be based on the account's business size, importance, or strategic alignment with the organization. For example, enterprise-level accounts might receive customized services or pricing, while smaller accounts may follow standardized procedures.",
+        "datatype": "Text(2)"
+      },
+      {
+        "apiname": "NumberOfEmployees",
+        "description": "The total number of employees at the account’s business location. Larger accounts may have more complex business needs, requiring tailored solutions and contracts. This metric also helps in understanding the scale of the account's operations and its potential for additional business opportunities or contract renewals.",
+        "datatype": "Number(8, 0)"
+      },
+      {
+        "apiname": "Fax",
+        "description": "The fax number associated with the account. While not commonly used in modern business, fax numbers might still be relevant for certain contracts, communications, or legal documentation processes that require physical document transmission, especially for industries that still rely on fax as a secure method of communication.",
+        "datatype": "Fax"
+      },
+      {
+        "apiname": "GeoCoordinates__c",
+        "description": "The geographical coordinates (latitude and longitude) of the account’s location. These coordinates are essential for geographic analysis, regional marketing strategies, and logistical purposes, such as managing product deliveries or determining the proximity of other accounts in the same region.",
+        "datatype": "Geolocation"
+      },
+      {
+        "apiname": "GeoLocation__c",
+        "description": "A formula field representing the account's geographical location in textual form. This field is helpful for reporting, analytics, and understanding regional distribution. It could be used in contract renewals or notifications where specific geographic regions trigger certain conditions.",
+        "datatype": "Formula (Text)"
+      },
+      {
+        "apiname": "Industry",
+        "description": "The industry type of the account, selected from a predefined list. Knowing the industry helps in customizing business offerings, understanding market conditions, and predicting the account's needs during contract renewals. It may also impact pricing, product offerings, and the terms of renewal.",
+        "datatype": "Picklist",
+        "picklistValues": [
+          "Agriculture",
+          "Apparel",
+          "Banking",
+          "Biotechnology",
+          "Chemicals",
+          "Communications",
+          "Construction",
+          "Consulting",
+          "Education",
+          "Electronics",
+          "Energy",
+          "Engineering",
+          "Entertainment",
+          "Environmental",
+          "Finance",
+          "Food & Beverage",
+          "Government",
+          "Healthcare",
+          "Hospitality",
+          "Insurance",
+          "Machinery",
+          "Manufacturing",
+          "Media",
+          "Not For Profit",
+          "Other",
+          "Recreation",
+          "Retail",
+          "Shipping",
+          "Technology",
+          "Telecommunications",
+          "Transportation",
+          "Utilities"
+        ]
+      },
+      {
+        "apiname": "Ownership",
+        "description": "Indicates the ownership structure of the account, whether it’s private, public, or government. This can have a significant impact on the contract renewal terms, with government accounts possibly having specific regulatory compliance needs, while private companies might negotiate differently based on business objectives.",
+        "datatype": "Picklist",
+        "picklistValues": [
+          "Public",
+          "Private",
+          "Subsidiary",
+          "Other"
+        ]
+      },
+      {
+        "apiname": "ParentId",
+        "description": "The ID of the parent account, if the current account is part of a larger parent-child relationship. This field is crucial for multi-level accounts, where renewal strategies might differ based on the hierarchical relationship between the accounts, especially in corporate structures.",
+        "datatype": "Hierarchy"
+      },
+      {
+        "apiname": "IsPartner",
+        "description": "Indicates whether the account is a partner organization. Partners may have special business agreements, contracts, or terms that differ from regular customer accounts. This field helps identify strategic relationships and manage renewals or special considerations for those accounts.",
+        "datatype": "Checkbox"
+      },
+      {
+        "apiname": "PaymentTerm__c",
+        "description": "The payment terms associated with the account, such as net 30, net 60, or customized payment schedules. This field is critical for managing financial aspects of the relationship, such as payment cycles and renewal billing schedules. It ensures that the business and customer align on payment expectations.",
+        "datatype": "Picklist",
+        "picklistValues": [
+          "Net 30",
+          "Net 60",
+          "Net 90"
+        ]
+      },
+      {
+        "apiname": "Phone",
+        "description": "The phone number associated with the account, used as a direct communication channel for support, billing inquiries, and contract management. It’s a primary method of contact, particularly for resolving issues related to contract renewals or business matters.",
+        "datatype": "Phone"
+      },
+      {
+        "apiname": "POICategory__c",
+        "description": "The category of Points of Interest (POI) linked to the account. POIs could include specific business operations, such as retail locations or data centers. Identifying these points helps in creating location-specific contracts or renewal strategies for businesses with multiple facilities or assets.",
+        "datatype": "Picklist",
+        "picklistValues": [
+          "Hotel",
+          "Eatery",
+          "Retailshops",
+          "Healthcare"
+        ]
+      },
+      {
+        "apiname": "POI_Image_URL__c",
+        "description": "The URL for an image related to the account’s Points of Interest. This image may be tied to a physical location, event, or other significant business assets that are relevant for business operations, including contract renewals, service agreements, or promotions.",
+        "datatype": "Long Text Area(32768)"
+      },
+      {
+        "apiname": "POIList__c",
+        "description": "A list of Points of Interest (POIs) associated with the account. This could include facilities, stores, or business locations relevant to the account’s operations. It’s used for location-specific strategies and helps identify assets or locations that may impact the contract renewal process.",
+        "datatype": "Text(20)"
+      },
+      {
+        "apiname": "POISubCategory__c",
+        "description": "A subcategory under Points of Interest that provides further detail about the type of POI. This helps categorize business locations or assets for more tailored contract management, renewal decisions, or marketing initiatives.",
+        "datatype": "Picklist",
+        "picklistValues": [
+          "5-Star",
+          "4-Star",
+          "3-Star",
+          "Hawker",
+          "Restaurant",
+          "Free Standing Shops",
+          "Hospital",
+          "Healthcare Centers",
+          "CHAS Clinic",
+          "Clinic",
+          "Shopping Mall"
+        ]
+      },
+      {
+        "apiname": "PremisesId__c",
+        "description": "The ID of the premises associated with the account, which could be relevant for accounts with physical locations tied to contracts. This helps in managing location-specific services and logistics, which may influence contract renewals or pricing.",
+        "datatype": "Lookup(Premise)"
+      },
+      {
+        "apiname": "Rating",
+        "description": "The rating or assessment assigned to the account based on business criteria. This field helps prioritize accounts for services, identify key renewal opportunities, or decide which accounts need special attention during contract negotiations.",
+        "datatype": "Picklist",
+        "picklistValues": [
+          "hot",
+          "warm",
+          "cold"
+        ]
+      },
+      {
+        "apiname": "ShippingAddress",
+        "description": "The shipping address associated with the account. This address is used for physical deliveries, product shipments, or other logistics tied to contract execution. It also plays a role in invoicing and contract renewals involving physical products or materials.",
+        "datatype": "Address"
+      },
+      {
+        "apiname": "Sic",
+        "description": "The Standard Industry Classification (SIC) code for the account’s business sector. This helps categorize accounts by their industry type, allowing the organization to customize renewal offers or pricing strategies based on industry-specific needs.",
+        "datatype": "Text(20)"
+      },
+      {
+        "apiname": "SicDesc",
+        "description": "A description of the SIC code, providing more context about the account’s industry. This aids in understanding which industry-specific terms or conditions should be considered when managing contract renewals.",
+        "datatype": "Text(80)"
+      },
+      {
+        "apiname": "TickerSymbol",
+        "description": "The stock ticker symbol for publicly traded accounts. This symbol is used for financial tracking and market analysis, potentially impacting renewal pricing strategies based on the company’s stock performance.",
+        "datatype": "Content(20)"
+      },
+      {
+        "apiname": "Type",
+        "description": "The type or category of the account, such as customer, prospect, or partner. This influences how the organization engages with the account and determines the terms of service, contract renewals, or business offers.",
+        "datatype": "Picklist",
+        "picklistValues": [
+          "Analyst",
+          "Competitor",
+          "Customer",
+          "Integrator",
+          "Investor",
+          "Partner",
+          "Press",
+          "Prospect",
+          "Reseller",
+          "Other"
+        ]
+      },
+      {
+        "apiname": "Website",
+        "description": "The URL of the account’s website. This is helpful for researching the account’s online presence, providing context during contract renewals, or offering additional services related to digital engagement.",
+        "datatype": "URL(255)"
+      }
+    ],
+    "recordtype": [
+      {
+        "developername": "Advertiser",
+        "description": "Used to classify an Account as an Advertiser for media campaigns, budget management, and billing purposes."
+      },
+      {
+        "developername": "Agency",
+        "description": "Represents an advertising Agency involved in planning or purchasing media on behalf of Advertisers."
+      },
+      {
+        "developername": "POI",
+        "description": "This is the record type to distinguish Account records that represent a Point of Interest (POI), such as store locations or business branches relevant for geographic targeting."
+      }
+    ]
+  },
+  {
+    "object": "Quote",
+    "description": "Represents a proposal or a price quote that is provided to a customer, detailing the items or services being offered, including quantities, prices, discounts, and terms.",
+    "fields": [
+      {
+        "apiname": "QuoteAccountId",
+        "description": "The account associated with the quote, referenced by a lookup to the Account object.",
+        "datatype": "Lookup(Account)"
+      },
+      {
+        "apiname": "AccountId",
+        "description": "The account associated with the quote, referenced by a lookup to the Account object.",
+        "datatype": "Lookup(Account)"
+      },
+      {
+        "apiname": "AdditionalAddress",
+        "description": "Additional address information for the quote.",
+        "datatype": "Address"
+      },
+      {
+        "apiname": "AdditionalName",
+        "description": "Additional name information for the quote.",
+        "datatype": "Text(255)"
+      },
+      {
+        "apiname": "Agency__c",
+        "description": "A formula field that calculates or stores the agency name associated with the quote.",
+        "datatype": "Formula (Text)"
+      },
+      {
+        "apiname": "BillingAddress",
+        "description": "The billing address associated with the quote.",
+        "datatype": "Address"
+      },
+      {
+        "apiname": "BillToContactId",
+        "description": "The contact to bill for the quote, referenced by a lookup to the Contact object.",
+        "datatype": "Lookup(Contact)"
+      },
+      {
+        "apiname": "BillingName",
+        "description": "The name to bill for the quote.",
+        "datatype": "Text(255)"
+      },
+      {
+        "apiname": "Budget__c",
+        "description": "The total budget for the quote in the specified currency.",
+        "datatype": "Currency(18, 0)"
+      },
+      {
+        "apiname": "CalculationStatus",
+        "description": "The status of the calculation for the quote, such as whether it is calculated, in progress, or failed.",
+        "datatype": "Picklist"
+      },
+      {
+        "apiname": "CampaignEndDate__c",
+        "description": "The end date for the campaign associated with the quote.",
+        "datatype": "Date"
+      },
+      {
+        "apiname": "CampaignStartDate__c",
+        "description": "The start date for the campaign associated with the quote.",
+        "datatype": "Date"
+      },
+      {
+        "apiname": "ContactId",
+        "description": "The contact associated with the quote, referenced by a lookup to the Contact object.",
+        "datatype": "Lookup(Contact)"
+      },
+      {
+        "apiname": "Description",
+        "description": "A long text area providing a description of the quote.",
+        "datatype": "Long Text Area(32000)"
+      },
+      {
+        "apiname": "Discount",
+        "description": "The discount applied to the quote, represented as a percentage.",
+        "datatype": "Percent(3, 2)"
+      },
+      {
+        "apiname": "Email",
+        "description": "The email address associated with the quote.",
+        "datatype": "Email"
+      },
+      {
+        "apiname": "ExpirationDate",
+        "description": "The expiration date for the quote.",
+        "datatype": "Date"
+      },
+      {
+        "apiname": "Fax",
+        "description": "The fax number associated with the quote.",
+        "datatype": "Fax"
+      },
+      {
+        "apiname": "GrandTotal",
+        "description": "The grand total for the quote in the specified currency.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "LastPricedDate",
+        "description": "The date and time when the quote was last priced.",
+        "datatype": "Date/Time"
+      },
+      {
+        "apiname": "LegalEntityId",
+        "description": "The legal entity associated with the quote, referenced by a lookup to the Legal Entity object.",
+        "datatype": "Lookup(Legal Entity)"
+      },
+      {
+        "apiname": "LineItemCount",
+        "description": "The total number of line items associated with the quote, calculated as a roll-up summary.",
+        "datatype": "Roll-Up Summary (COUNT Quote Line Item)"
+      },
+      {
+        "apiname": "MaxSpendPerPeriod__c",
+        "description": "The maximum spend per period for the quote, represented as a percentage.",
+        "datatype": "Number(18, 0)"
+      },
+      {
+        "apiname": "MinMargin__c",
+        "description": "The minimum margin percentage for the quote.",
+        "datatype": "Number(18, 0)"
+      },
+      {
+        "apiname": "MinSpendPerPeriod__c",
+        "description": "The minimum spend per period for the quote, represented as a percentage.",
+        "datatype": "Number(18, 0)"
+      },
+      {
+        "apiname": "OpportunityId",
+        "description": "The opportunity associated with the quote, referenced by a master-detail relationship to the Opportunity object.",
+        "datatype": "Master-Detail(Opportunity)"
+      },
+      {
+        "apiname": "OriginalActionType",
+        "description": "The original action type associated with the quote, such as a renewal or new sale.",
+        "datatype": "Picklist"
+      },
+      {
+        "apiname": "OwnerId",
+        "description": "The user or group that owns the quote, referenced by a lookup to the User or Group object.",
+        "datatype": "Lookup(User,Group)"
+      },
+      {
+        "apiname": "ParentQuoteId__c",
+        "description": "The ID of the parent quote, if this quote is a child of another.",
+        "datatype": "Lookup(Quote)"
+      },
+      {
+        "apiname": "PartnerAccountId",
+        "description": "The partner account associated with the quote, referenced by a lookup to the Account object.",
+        "datatype": "Lookup(Account)"
+      },
+      {
+        "apiname": "Phone",
+        "description": "The phone number associated with the quote.",
+        "datatype": "Phone"
+      },
+      {
+        "apiname": "PricingContractId",
+        "description": "The pricing contract associated with the quote, referenced by a lookup to the Contract object.",
+        "datatype": "Lookup(Contract)"
+      },
+      {
+        "apiname": "ProposalDuration__c",
+        "description": "The duration of the proposal associated with the quote, represented as a picklist value.",
+        "datatype": "Picklist",
+        "picklistValues": [
+          "Short",
+          "Medium",
+          "Long",
+          "Evergreen"
+        ]
+      },
+      {
+        "apiname": "ProposedACV__c",
+        "description": "The proposed annual contract value associated with the quote, represented as a picklist value.",
+        "datatype": "Picklist",
+        "picklistValues": [
+          "Low",
+          "Medium",
+          "High",
+          "Grand"
+        ]
+      },
+      {
+        "apiname": "QuoteName",
+        "description": "The name of the quote, used to identify it.",
+        "datatype": "Text(255)"
+      },
+      {
+        "apiname": "QuoteNumber",
+        "description": "A unique identifier for the quote, automatically generated by Salesforce.",
+        "datatype": "Auto Number"
+      },
+      {
+        "apiname": "RecordTypeId",
+        "description": "The record type associated with the quote, referencing a Record Type.",
+        "datatype": "Record Type"
+      },
+      {
+        "apiname": "QuoteToAddress",
+        "description": "The shipping address associated with the quote.",
+        "datatype": "Address"
+      },
+      {
+        "apiname": "QuoteToName",
+        "description": "The name associated with the shipping address of the quote.",
+        "datatype": "Text(255)"
+      },
+      {
+        "apiname": "SalesTransactionTypeId",
+        "description": "The type of sales transaction associated with the quote.",
+        "datatype": "Lookup(Sales Transaction Type)"
+      },
+      {
+        "apiname": "ShippingAddress",
+        "description": "The shipping address associated with the quote.",
+        "datatype": "Address"
+      },
+      {
+        "apiname": "ShippingName",
+        "description": "The name associated with the shipping address of the quote.",
+        "datatype": "Text(255)"
+      },
+      {
+        "apiname": "ShippingHandling",
+        "description": "The cost for shipping and handling associated with the quote.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "StartDate",
+        "description": "The start date for the quote.",
+        "datatype": "Date"
+      },
+      {
+        "apiname": "Status",
+        "description": "The status of the quote, such as draft, approved, or expired.",
+        "datatype": "Picklist",
+        "picklistValues": [
+          "Draft",
+          "Needs Review",
+          "In Review",
+          "Approved",
+          "Rejected",
+          "Presented",
+          "Accepted",
+          "Superseded"
+        ]
+      },
+      {
+        "apiname": "Subtotal",
+        "description": "The subtotal for the quote, calculated as a roll-up summary from Quote Line Items.",
+        "datatype": "Roll-Up Summary (SUM Quote Line Item)"
+      },
+      {
+        "apiname": "IsSyncing",
+        "description": "Indicates whether the quote is currently syncing with another system.",
+        "datatype": "Checkbox"
+      },
+      {
+        "apiname": "Tax",
+        "description": "The tax amount associated with the quote.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "TotalPrice",
+        "description": "The total price of the quote, calculated as a roll-up summary from Quote Line Items.",
+        "datatype": "Roll-Up Summary (SUM Quote Line Item)"
+      },
+      {
+        "apiname": "TotalPriceWithTax",
+        "description": "The total price of the quote including tax.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "TotalTaxAmount",
+        "description": "The total tax amount for the quote, calculated as a roll-up summary from Quote Line Items.",
+        "datatype": "Roll-Up Summary (SUM Quote Line Item)"
+      },
+      {
+        "apiname": "ValidationResult",
+        "description": "The result of quote validation, such as success or failure.",
+        "datatype": "Picklist"
+      },
+      {
+        "apiname": "Version__c",
+        "description": "The version number of the quote.",
+        "datatype": "Number(18, 0)"
+      }
+    ],
+    "recordtype": [
+      {
+        "recordtype": "AdSales",
+        "description": "Used for managing Quotes related to advertising sales, including media plans and campaigns."
+      },
+      {
+        "recordtype": "ResourcePlanning",
+        "description": "Used for creating Quotes tied to resource allocation, staffing, or internal planning operations."
+      }
+    ]
+  },
+  {
+    "object": "QuoteLineItem",
+    "description": "Represents a line item within a quote, detailing the product or service being offered, including pricing, quantities, and other relevant attributes.",
+    "fields": [
+      {
+        "apiname": "Ad_Format__c",
+        "description": "The advertising format associated with the quote line item, represented as a formula.",
+        "datatype": "Formula (Text)"
+      },
+      {
+        "apiname": "Ad_Format_Test__c",
+        "description": "Test field for storing advertising format information.",
+        "datatype": "Text(50)"
+      },
+      {
+        "apiname": "Ad_Placement_Definition__c",
+        "description": "Lookup field to the Ad Placement Definition, which defines where the ad will be placed.",
+        "datatype": "Lookup(Ad Placement Definition)"
+      },
+      {
+        "apiname": "AdServer__c",
+        "description": "The ad server associated with the quote line item.",
+        "datatype": "Text(200)"
+      },
+      {
+        "apiname": "Ad_size__c",
+        "description": "The size of the ad, represented as a formula.",
+        "datatype": "Formula (Text)"
+      },
+      {
+        "apiname": "Attribute_Selected_Values__c",
+        "description": "Long text area containing the selected values for product attributes.",
+        "datatype": "Long Text Area(32768)"
+      },
+      {
+        "apiname": "BillingFrequency",
+        "description": "The frequency of billing for this quote line item, such as monthly or annually.",
+        "datatype": "Picklist"
+      },
+      {
+        "apiname": "BillingReference",
+        "description": "A reference field for the billing associated with this quote line item.",
+        "datatype": "Text(80)"
+      },
+      {
+        "apiname": "BillingTreatmentId",
+        "description": "Lookup field to the Billing Treatment, defining how the billing is handled for this line item.",
+        "datatype": "Lookup(Billing Treatment)"
+      },
+      {
+        "apiname": "BindingInstanceTargetId",
+        "description": "The target for binding the instance, such as an associated quote line item or asset.",
+        "datatype": "Lookup(Quote Line Item, Asset)"
+      },
+      {
+        "apiname": "PricingEndDate__c",
+        "description": "The end date of the campaign or pricing for the quote line item.",
+        "datatype": "Date"
+      },
+      {
+        "apiname": "PricingStartDate__c",
+        "description": "The start date of the campaign or pricing for the quote line item.",
+        "datatype": "Date"
+      },
+      {
+        "apiname": "LineitemGroup__c",
+        "description": "Lookup to the CRMA Lineitem Group, categorizing the quote line item.",
+        "datatype": "Lookup(CRMA Lineitem Group)"
+      },
+      {
+        "apiname": "CustomProductName",
+        "description": "Custom name for the product associated with this quote line item.",
+        "datatype": "Text(255)"
+      },
+      {
+        "apiname": "ServiceDate",
+        "description": "The date when the service or product is provided or activated.",
+        "datatype": "Date"
+      },
+      {
+        "apiname": "DiscountAmount",
+        "description": "The discount applied to this quote line item, represented as a currency value.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "Discount",
+        "description": "The discount applied to this quote line item, represented as a percentage.",
+        "datatype": "Percent(3, 2)"
+      },
+      {
+        "apiname": "EffectiveGrantDate",
+        "description": "The date when the grant or pricing is effective for this quote line item.",
+        "datatype": "Date"
+      },
+      {
+        "apiname": "EndDate",
+        "description": "The end date for the quote line item.",
+        "datatype": "Date"
+      },
+      {
+        "apiname": "EndQuantity",
+        "description": "The ending quantity of the item or service in this quote line item.",
+        "datatype": "Number(10, 2)"
+      },
+      {
+        "apiname": "Flight_End__c",
+        "description": "The end date for the flight associated with this quote line item.",
+        "datatype": "Date"
+      },
+      {
+        "apiname": "Flight_Start__c",
+        "description": "The start date for the flight associated with this quote line item.",
+        "datatype": "Date"
+      },
+      {
+        "apiname": "Frequency__c",
+        "description": "The frequency associated with the quote line item, such as weekly or monthly.",
+        "datatype": "Number(18, 0)"
+      },
+      {
+        "apiname": "IsPrimarySegment",
+        "description": "Indicates whether this quote line item is part of the primary segment.",
+        "datatype": "Checkbox"
+      },
+      {
+        "apiname": "IsSkippable__c",
+        "description": "Indicates whether the quote line item is skippable.",
+        "datatype": "Checkbox"
+      },
+      {
+        "apiname": "LegalEntityId",
+        "description": "The legal entity associated with this quote line item, referenced by a lookup to the Legal Entity object.",
+        "datatype": "Lookup(Legal Entity)"
+      },
+      {
+        "apiname": "Description",
+        "description": "A brief description of the quote line item.",
+        "datatype": "Text(255)"
+      },
+      {
+        "apiname": "Line_Item_GUID__c",
+        "description": "A globally unique identifier for the quote line item, automatically generated.",
+        "datatype": "Auto Number"
+      },
+      {
+        "apiname": "LineNumber",
+        "description": "The line number for the quote line item, automatically generated.",
+        "datatype": "Auto Number"
+      },
+      {
+        "apiname": "ListPrice",
+        "description": "The list price for the quote line item, in the specified currency.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "MediaType__c",
+        "description": "The type of media associated with the quote line item.",
+        "datatype": "Picklist",
+        "picklistValues": [
+          "Digital",
+          "Linear",
+          "Print",
+          "OOH",
+          "TV",
+          "Radio",
+          "TV-Channel",
+          "TV-Program"
+        ]
+      },
+      {
+        "apiname": "NetTotalPrice",
+        "description": "The net total price for the quote line item, in the specified currency.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "NetUnitPrice",
+        "description": "The net unit price for the quote line item, in the specified currency.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "No_of_Issue__c",
+        "description": "The number of issues or occurrences for this quote line item.",
+        "datatype": "Number(18, 0)"
+      },
+      {
+        "apiname": "Offer__c",
+        "description": "Formula field that calculates or stores the offer associated with the quote line item.",
+        "datatype": "Formula (Text)"
+      },
+      {
+        "apiname": "BaseOneTimeCharge__c",
+        "description": "The one-time charge applied to the quote line item.",
+        "datatype": "Currency(18, 0)"
+      },
+      {
+        "apiname": "BaseOneTimeTotal__c",
+        "description": "The total one-time charge applied to the quote line item.",
+        "datatype": "Currency(18, 0)"
+      },
+      {
+        "apiname": "ParentQuoteLineItemId",
+        "description": "The ID of the parent quote line item, if this is a child quote line item.",
+        "datatype": "Lookup(Quote Line Item)"
+      },
+      {
+        "apiname": "PartnerDiscountPercent",
+        "description": "The discount percentage applied to the partner for this quote line item.",
+        "datatype": "Percent(3, 2)"
+      },
+      {
+        "apiname": "PartnerUnitPrice",
+        "description": "The unit price for the partner, in the specified currency.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "PeriodBoundaryDay",
+        "description": "The day associated with the period boundary for the quote line item.",
+        "datatype": "Number(9, 0)"
+      },
+      {
+        "apiname": "Placement_Name__c",
+        "description": "The name of the placement associated with the quote line item.",
+        "datatype": "Text Area(255)"
+      },
+      {
+        "apiname": "Placement_Option__c",
+        "description": "Formula field that calculates or stores the placement option for the quote line item.",
+        "datatype": "Formula (Text)"
+      },
+      {
+        "apiname": "POI__c",
+        "description": "Lookup to the Points of Interest (POI) associated with the quote line item.",
+        "datatype": "Lookup(Account)"
+      },
+      {
+        "apiname": "PremisesId__c",
+        "description": "Lookup to the premises associated with the quote line item.",
+        "datatype": "Lookup(Premise)"
+      },
+      {
+        "apiname": "PriceWaterfallIdentifier",
+        "description": "Unique identifier for the price waterfall associated with the quote line item.",
+        "datatype": "Text(80)"
+      },
+      {
+        "apiname": "PricingContractId",
+        "description": "Lookup to the pricing contract associated with the quote line item.",
+        "datatype": "Lookup(Contract)"
+      },
+      {
+        "apiname": "PricingModel__c",
+        "description": "The pricing model applied to the quote line item.",
+        "datatype": "Text(200)"
+      },
+      {
+        "apiname": "PricingTerm",
+        "description": "The pricing term for the quote line item, such as monthly or annually.",
+        "datatype": "Number(9, 0)"
+      },
+      {
+        "apiname": "PricingTermCount",
+        "description": "The number of periods for the pricing term of the quote line item.",
+        "datatype": "Number(16, 2)"
+      },
+      {
+        "apiname": "PriorQuoteLineItemId__c",
+        "description": "Lookup to the prior quote line item associated with this line item.",
+        "datatype": "Lookup(Quote Line Item)"
+      },
+      {
+        "apiname": "Product2Id",
+        "description": "Lookup to the product associated with this quote line item.",
+        "datatype": "Lookup(Product)"
+      },
+      {
+        "apiname": "Product_Code__c",
+        "description": "Formula field that calculates or stores the product code for the quote line item.",
+        "datatype": "Formula (Text)"
+      },
+      {
+        "apiname": "Product_Family__c",
+        "description": "Formula field that calculates or stores the product family for the quote line item.",
+        "datatype": "Formula (Text)"
+      },
+      {
+        "apiname": "ProductInstanceIdentifier",
+        "description": "The unique identifier for the product instance associated with the quote line item.",
+        "datatype": "Text(255)"
+      },
+      {
+        "apiname": "ProrationPolicyId",
+        "description": "Lookup to the proration policy associated with the quote line item.",
+        "datatype": "Lookup(Proration Policy)"
+      },
+      {
+        "apiname": "Quantity",
+        "description": "The quantity of the product or service for this quote line item.",
+        "datatype": "Number(10, 2)"
+      },
+      {
+        "apiname": "QuantityUnitOfMeasureId",
+        "description": "Lookup to the unit of measure for the quantity in this quote line item.",
+        "datatype": "Lookup(Unit of Measure)"
+      },
+      {
+        "apiname": "QuoteActionId",
+        "description": "Lookup to the quote action associated with this quote line item.",
+        "datatype": "Lookup(Quote Action)"
+      },
+      {
+        "apiname": "QuoteLineGroupId",
+        "description": "Lookup to the quote line group associated with this quote line item.",
+        "datatype": "Lookup(Quote Line Group)"
+      },
+      {
+        "apiname": "QuoteLineItemRecipientId",
+        "description": "Lookup to the recipient associated with this quote line item.",
+        "datatype": "Lookup(Quote Line Item Recipient)"
+      },
+      {
+        "apiname": "QuoteId",
+        "description": "The ID of the quote associated with this quote line item, referenced by a master-detail relationship.",
+        "datatype": "Master-Detail(Quote)"
+      },
+      {
+        "apiname": "RampIdentifier",
+        "description": "Identifier for the ramp pricing associated with this quote line item.",
+        "datatype": "Text(255)"
+      },
+      {
+        "apiname": "BaseRecurringCharge__c",
+        "description": "The recurring charge applied to this quote line item.",
+        "datatype": "Currency(18, 0)"
+      },
+      {
+        "apiname": "BaseRecurringTotal__c",
+        "description": "The total recurring charge applied to this quote line item.",
+        "datatype": "Currency(18, 0)"
+      },
+      {
+        "apiname": "UnitPrice",
+        "description": "The unit price of the product or service for this quote line item.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "SegmentIdentifier",
+        "description": "The unique identifier for the segment associated with this quote line item.",
+        "datatype": "Text(255)"
+      },
+      {
+        "apiname": "SegmentName",
+        "description": "The name of the segment associated with this quote line item.",
+        "datatype": "Text(255)"
+      },
+      {
+        "apiname": "ServiceAccountId__c",
+        "description": "Lookup to the service account associated with this quote line item.",
+        "datatype": "Lookup(Account)"
+      },
+      {
+        "apiname": "SortOrder",
+        "description": "The sort order for the quote line item.",
+        "datatype": "Number(9, 0)"
+      },
+      {
+        "apiname": "Spend_Metric__c",
+        "description": "The spend metric for the quote line item.",
+        "datatype": "Number(10, 5)"
+      },
+      {
+        "apiname": "Spend_Type__c",
+        "description": "The type of spend for the quote line item.",
+        "datatype": "Picklist",
+        "picklistValues": [
+          "Cost Per Location",
+          "Full Page",
+          "Half Page",
+          "CPM",
+          "CPV",
+          "Fixed Rate",
+          "Location-Based",
+          "Seasonal Pricing"
+        ]
+      },
+      {
+        "apiname": "StartDate",
+        "description": "The start date for the quote line item.",
+        "datatype": "Date"
+      },
+      {
+        "apiname": "StartQuantity",
+        "description": "The starting quantity for the quote line item.",
+        "datatype": "Number(10, 2)"
+      },
+      {
+        "apiname": "Status__c",
+        "description": "The status of the quote line item, such as active or completed.",
+        "datatype": "Picklist",
+        "picklistValues": [
+          "Draft",
+          "Submitted",
+          "Approved",
+          "Pending",
+          "Superseded"
+        ]
+      },
+      {
+        "apiname": "SubscriptionTerm",
+        "description": "The subscription term for the quote line item, expressed as a number.",
+        "datatype": "Number(9, 0)"
+      },
+      {
+        "apiname": "Subtotal",
+        "description": "The subtotal for the quote line item, excluding taxes and adjustments.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "Targeting_Parameter__c",
+        "description": "Targeting parameters for the quote line item, typically used for advertising or media.",
+        "datatype": "Long Text Area(131072)"
+      },
+      {
+        "apiname": "TaxTreatmentId",
+        "description": "Lookup to the tax treatment associated with the quote line item.",
+        "datatype": "Lookup(Tax Treatment)"
+      },
+      {
+        "apiname": "TotalAdjustmentAmount",
+        "description": "The total adjustment amount for the quote line item.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "Total_Billing_Cost__c",
+        "description": "The total billing cost for the quote line item.",
+        "datatype": "Currency(18, 0)"
+      },
+      {
+        "apiname": "TotalLineAmount",
+        "description": "The total amount for the quote line item, including discounts and adjustments.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "TotalPrice",
+        "description": "The total price for the quote line item, including all adjustments and taxes.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "TotalPriceWithTax",
+        "description": "The total price for the quote line item, including taxes.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "TotalTaxAmount",
+        "description": "The total tax amount for the quote line item, calculated as a roll-up summary from Quote Item Tax Item.",
+        "datatype": "Roll-Up Summary (SUM Quote Item Tax Item)"
+      }
+    ]
+  },
+  {
+    "object": "Contract",
+    "description": "The Contract object represents a legal agreement between two or more parties that outlines terms, conditions, obligations, and rights. Contracts often cover aspects such as pricing, timelines, deliverables, and obligations that are critical to managing the lifecycle of business agreements. This object also includes key attributes for tracking contract activation, renewals, amendments, and terminations, providing a comprehensive view of business operations and contractual relationships.",
+    "fields": [
+      {
+        "apiname": "AccountId",
+        "description": "The Account associated with the contract, referenced through a lookup to the Account object. This field is essential for linking the contract to the relevant business entity and for tracking the contract’s lifecycle, including renewal eligibility, account history, and customer-specific terms. It is a central field in understanding the context of the contract and its relationship to the account.",
+        "datatype": "Lookup(Account)"
+      },
+      {
+        "apiname": "ActivatedById",
+        "description": "The user who activated the contract, referenced by a lookup to the User object. Tracking the activation user is important for understanding who authorized the contract's initiation and is typically used for auditing and historical reference purposes. The user’s actions may trigger automatic processes, including notifications, renewals, or other workflow-related tasks.",
+        "datatype": "Lookup(User)"
+      },
+      {
+        "apiname": "ActivatedDate",
+        "description": "The date and time when the contract was activated. This timestamp is critical for calculating the contract’s start and end dates, as well as for determining the renewal eligibility and timelines. It plays a central role in contract lifecycle management, ensuring accurate tracking of contract validity periods and activation milestones.",
+        "datatype": "Date/Time"
+      },
+      {
+        "apiname": "ContractDocumentVersionId",
+        "description": "The contract document version ID, which links to the specific version of the contract document that was signed or agreed upon. This field helps track different versions of the contract, providing version control and ensuring that all amendments or changes to the original contract are properly documented and can be referenced during renewal discussions or audits.",
+        "datatype": "Lookup(Contract Document Version)"
+      },
+      {
+        "apiname": "AmendedContractId",
+        "description": "The ID of the amended contract, if the current contract is an amendment to a previous one. This allows businesses to manage contract history by linking related contracts together. The amended contract can reflect changes in terms, conditions, or pricing, which is particularly useful for managing ongoing relationships and ensuring that renewals align with previous agreements.",
+        "datatype": "Lookup(Contract)"
+      },
+      {
+        "apiname": "BillingAddress",
+        "description": "The billing address associated with the contract. This address includes information such as the street, city, state, and postal code where invoices for the contract are sent. Accurate billing information is crucial for the invoicing process, ensuring that payments are processed correctly and on time, particularly during contract renewals or periodic billing cycles.",
+        "datatype": "Address"
+      },
+      {
+        "apiname": "CompanySignedId",
+        "description": "The user who signed the contract on behalf of the company, referenced by a lookup to the User object. This signature is an essential part of the contract's formalization, establishing that the contract has been officially agreed upon and validated by the company’s representatives. It is also used for tracking accountability and triggering related processes for contract renewals or amendments.",
+        "datatype": "Lookup(User)"
+      },
+      {
+        "apiname": "CompanySignedDate",
+        "description": "The date when the company signed the contract. This date serves as a reference point for the contract’s lifecycle, including the initiation of the renewal period and expiration dates. It is important for ensuring that the contract renewal and other deadlines are appropriately tracked based on the company’s approval.",
+        "datatype": "Date"
+      },
+      {
+        "apiname": "ContractDocVersionCount",
+        "description": "The number of versions associated with the contract document. This field helps track the history of contract changes and amendments over time. Keeping a count of document versions is important for legal compliance and ensuring that all parties involved are using the most current version of the contract for renewals and other contractual obligations.",
+        "datatype": "Number(9, 0)"
+      },
+      {
+        "apiname": "EndDate",
+        "description": "The contract's end date, which marks the expiration of the terms and conditions defined in the agreement. This is a key field for tracking the timing of renewals, terminations, and amendments. The contract end date is used to generate reminders for renewal actions or to flag contracts that are nearing expiration and need review or negotiation.",
+        "datatype": "Date"
+      },
+      {
+        "apiname": "Name",
+        "description": "The contract’s name, used as a primary identifier for the agreement in reports, dashboards, and notifications. It is the most common way to reference the contract within Salesforce and related systems. This field allows users to easily identify and search for the contract in business processes related to its lifecycle.",
+        "datatype": "Text(80)"
+      },
+      {
+        "apiname": "ContractNumber",
+        "description": "A unique, automatically generated number assigned to each contract. This identifier is used for referencing the contract in internal systems, reports, and legal documents. It helps avoid confusion between contracts and ensures that each contract can be uniquely identified and tracked through its lifecycle.",
+        "datatype": "Auto Number"
+      },
+      {
+        "apiname": "OwnerId",
+        "description": "The user who owns the contract, typically responsible for managing the contract’s lifecycle. This includes overseeing the renewal process, addressing any issues, and ensuring compliance with the terms of the contract. The contract owner is typically the primary point of contact for all activities related to that contract.",
+        "datatype": "Lookup(User)"
+      },
+      {
+        "apiname": "RecordTypeId",
+        "description": "Identifies the record type of the contract, determining the type of agreement (e.g., standard, custom, or negotiated). Record types help in managing different contract categories and enable the system to apply specific business rules, approval workflows, and renewals processes based on the type of contract.",
+        "datatype": "Record Type"
+      },
+      {
+        "apiname": "StartDate",
+        "description": "The date when the contract begins. It is used to track the validity period and to calculate key dates such as renewal deadlines and contract expiration. This field is vital for contract lifecycle management, as it helps determine when renewal notices or reminders need to be issued.",
+        "datatype": "Date"
+      },
+      {
+        "apiname": "ContractTerm",
+        "description": "The length of the contract term, typically measured in months. This is a critical field for understanding how long the contract is active and when it is eligible for renewal. The term defines the timeline for any automatic renewals or for triggering manual renewal actions before the contract expires.",
+        "datatype": "Number(4, 0)"
+      },
+      {
+        "apiname": "ContractType",
+        "description": "The type of the contract, such as a fixed-term or evergreen contract. This classification impacts renewal processes, with fixed-term contracts requiring manual renewal actions and evergreen contracts typically renewing automatically unless terminated. This field helps define how the contract is managed and what actions are required for its continuation.",
+        "datatype": "Text(80)"
+      },
+      {
+        "apiname": "CustomerSignedId",
+        "description": "The contact who signed the contract on behalf of the customer. This field helps in tracking the person who authorized the contract and is typically used to initiate actions like renewal notifications, contract modifications, and follow-up communications.",
+        "datatype": "Lookup(Contact)"
+      },
+      {
+        "apiname": "CustomerSignedDate",
+        "description": "The date when the customer signed the contract. This signature serves as a legal commitment to the terms of the contract and is a reference point for renewal, termination, and modification calculations.",
+        "datatype": "Date"
+      },
+      {
+        "apiname": "CustomerSignedTitle",
+        "description": "The title or position of the person who signed the contract on behalf of the customer. This is useful for identifying decision-makers in the renewal process or in case of any issues that require authorization from a specific authority within the customer organization.",
+        "datatype": "Text(40)"
+      },
+      {
+        "apiname": "Description",
+        "description": "A long text description that provides detailed information about the contract, including its terms, conditions, specific clauses, and renewal information. This description may also outline any special conditions, custom terms, or restrictions that may be relevant for the renewal process or any legal considerations.",
+        "datatype": "Long Text Area(32000)"
+      },
+      {
+        "apiname": "ExternalContractReference",
+        "description": "An external reference to the contract used for integration with other systems or tracking mechanisms outside of Salesforce. This field is especially useful for businesses that manage contracts in multiple systems or need to synchronize contract data with third-party systems.",
+        "datatype": "Text(255)"
+      },
+      {
+        "apiname": "IsAssociatedWithClm",
+        "description": "Indicates whether the contract is associated with a Contract Lifecycle Management (CLM) system. This integration might automate renewal processes, trigger alerts when contracts are approaching expiration, and streamline the contract review and approval workflows.",
+        "datatype": "Checkbox"
+      },
+      {
+        "apiname": "IsPricingContract",
+        "description": "Indicates whether the contract is a pricing contract, which can influence how pricing is structured for renewal. Pricing contracts often require recalculation or adjustment of terms during renewal, making this field important for financial and billing teams.",
+        "datatype": "Checkbox"
+      },
+      {
+        "apiname": "IsRenewalProcessEnabled",
+        "description": "Indicates if the renewal process is enabled for this contract. If set to true, it means the system will track renewal dates, trigger renewal workflows, and ensure that actions are taken as the contract approaches its expiration date.",
+        "datatype": "Checkbox"
+      },
+      {
+        "apiname": "ParentContractId",
+        "description": "The ID of the parent contract, if the current contract is a child contract. Parent-child relationships are important for managing complex contract structures, ensuring that all terms align across linked contracts during renewals.",
+        "datatype": "Lookup(Contract)"
+      },
+      {
+        "apiname": "PreviousContractId",
+        "description": "The ID of the previous contract if this is a renewal or amendment. It helps track the history of contractual agreements and ensures that renewal terms are consistent with prior contracts, particularly when there are amendments or changes to terms.",
+        "datatype": "Lookup(Contract)"
+      },
+      {
+        "apiname": "Pricebook2Id",
+        "description": "The pricebook associated with the contract, which defines the pricing structure for the contract. This field is essential for managing renewal pricing, ensuring that any changes in pricing models are reflected during contract renewals.",
+        "datatype": "Lookup(Price Book)"
+      },
+      {
+        "apiname": "RenewalNotificationDate",
+        "description": "The date when the renewal notification for the contract will be sent. This field is used to trigger automated reminders for contract renewals, ensuring that the renewal process is started in a timely manner before the contract expires.",
+        "datatype": "Date"
+      },
+      {
+        "apiname": "RenewalNotificationTerm",
+        "description": "The term (in months) for the renewal notification, specifying how far in advance the renewal notice will be sent to the relevant parties.",
+        "datatype": "Number(4, 0)"
+      },
+      {
+        "apiname": "RenewalTerm2",
+        "description": "The length of the renewal term, in months, for the contract. This field helps define the duration of the renewed contract and is essential for calculating billing cycles, service terms, and potential pricing adjustments during the renewal process.",
+        "datatype": "Number(16, 2)"
+      },
+      {
+        "apiname": "ShippingAddress",
+        "description": "The shipping address for the contract, relevant for physical product deliveries, renewals, or services linked to the contract. This field is also crucial for billing cycles if the contract includes physical shipments of goods.",
+        "datatype": "Address"
+      },
+      {
+        "apiname": "SourceOpportunityId",
+        "description": "The opportunity linked to the contract, used to track the originating sales effort and providing context for any subsequent contract renewals.",
+        "datatype": "Lookup(Opportunity)"
+      },
+      {
+        "apiname": "SourceOrderId",
+        "description": "The order linked to the contract, helping connect the contract to specific sales orders. This can be important when managing product-based contracts that need to be reviewed or renewed according to order terms.",
+        "datatype": "Lookup(Order)"
+      },
+      {
+        "apiname": "SourceQuoteId",
+        "description": "The quote linked to the contract, used for tracking the pricing and terms provided at the point of contract origination. This helps in managing renewal pricing and ensuring the contract terms align with what was initially proposed.",
+        "datatype": "Lookup(Quote)"
+      },
+      {
+        "apiname": "SpecialTerms",
+        "description": "Any special terms or conditions associated with the contract. This could include customized renewal clauses, special discounting rules, or additional requirements that impact the renewal process.",
+        "datatype": "Text Area(4000)"
+      },
+      {
+        "apiname": "Status",
+        "description": "The current status of the contract (e.g., Active, Expired, Terminated). This field is critical for identifying contracts that are nearing their end and triggering the renewal process or other follow-up actions.",
+        "datatype": "Picklist",
+        "picklistValues": [
+          "Draft",
+          "In Approval Process",
+          "Activated",
+          "Rejected",
+          "Negotiating",
+          "Awaiting Signature",
+          "Signature Declined",
+          "Signed",
+          "Canceled",
+          "Contract Expired",
+          "Contract Terminated"
+        ]
+      },
+      {
+        "apiname": "TerminationDateTime",
+        "description": "The date and time when the contract was terminated. This is useful for tracking contracts that were ended before the expiration date, often impacting renewal eligibility or potential negotiations.",
+        "datatype": "Date/Time"
+      }
+    ]
+  },
+  {
+    "object": "SalesContractLine",
+    "description": "Represents a line item within a sales contract, detailing the product, quantity, price, and related information for the contract line.",
+    "fields": [
+      {
+        "apiname": "ContractId",
+        "description": "The contract associated with the sales contract line, referenced by a master-detail relationship to the Contract object.",
+        "datatype": "Master-Detail(Contract)"
+      },
+      {
+        "apiname": "Description",
+        "description": "A detailed description of the sales contract line.",
+        "datatype": "Long Text Area(32000)"
+      },
+      {
+        "apiname": "EffectiveEndDateTime",
+        "description": "The effective end date and time for the sales contract line.",
+        "datatype": "Date/Time"
+      },
+      {
+        "apiname": "EffectiveStartDateTime",
+        "description": "The effective start date and time for the sales contract line.",
+        "datatype": "Date/Time"
+      },
+      {
+        "apiname": "LineItemNumber",
+        "description": "The number assigned to this line item in the sales contract, used for identification and organization.",
+        "datatype": "Text(30)"
+      },
+      {
+        "apiname": "OpportunityProductId",
+        "description": "The opportunity product associated with this sales contract line, referenced by a lookup to the Opportunity Product object.",
+        "datatype": "Lookup(Opportunity Product)"
+      },
+      {
+        "apiname": "OrderProductId",
+        "description": "The order product associated with this sales contract line, referenced by a lookup to the Order Product object.",
+        "datatype": "Lookup(Order Product)"
+      },
+      {
+        "apiname": "OriginalLineItemId",
+        "description": "The original sales contract line that this line item is derived from, if applicable.",
+        "datatype": "Lookup(Sales Contract Line)"
+      },
+      {
+        "apiname": "Product2Id",
+        "description": "The product associated with this sales contract line, referenced by a lookup to the Product object.",
+        "datatype": "Lookup(Product)"
+      },
+      {
+        "apiname": "ProductCode",
+        "description": "The product code for the product associated with this sales contract line.",
+        "datatype": "Long Text Area(32000)"
+      },
+      {
+        "apiname": "Quantity",
+        "description": "The quantity of the product or service for this sales contract line.",
+        "datatype": "Number(18, 0)"
+      },
+      {
+        "apiname": "QuoteLineItemId",
+        "description": "The quote line item associated with this sales contract line, referenced by a lookup to the Quote Line Item object.",
+        "datatype": "Lookup(Quote Line Item)"
+      },
+      {
+        "apiname": "Name",
+        "description": "The name of the sales contract line, typically derived from the product or service.",
+        "datatype": "Text(80)"
+      },
+      {
+        "apiname": "Status",
+        "description": "The current status of the sales contract line, such as active, completed, or expired.",
+        "datatype": "Picklist",
+        "picklistValues": [
+          "Active",
+          "Inactive"
+        ]
+      },
+      {
+        "apiname": "TotalPrice",
+        "description": "The total price for this sales contract line, calculated based on the quantity and unit price.",
+        "datatype": "Currency(18, 0)"
+      },
+      {
+        "apiname": "UnitOfMeasureId",
+        "description": "The unit of measure for the product or service in this sales contract line, referenced by a lookup to the Unit of Measure object.",
+        "datatype": "Lookup(Unit of Measure)"
+      },
+      {
+        "apiname": "UnitPrice",
+        "description": "The unit price of the product or service for this sales contract line.",
+        "datatype": "Currency(18, 0)"
+      }
+    ]
+  },
+  {
+    "object": "Order",
+    "description": "Represents a customer order within the system, detailing the products or services purchased, along with pricing, terms, and order status.",
+    "fields": [
+      {
+        "apiname": "AccountId",
+        "description": "The account associated with the order, referenced by a lookup to the Account object.",
+        "datatype": "Lookup(Account)"
+      },
+      {
+        "apiname": "AccountNumber",
+        "description": "The account number associated with the order.",
+        "datatype": "Text(40)"
+      },
+      {
+        "apiname": "ActivatedById",
+        "description": "The user who activated the order, referenced by a lookup to the User object.",
+        "datatype": "Lookup(User)"
+      },
+      {
+        "apiname": "ActivatedDate",
+        "description": "The date and time when the order was activated.",
+        "datatype": "Date/Time"
+      },
+      {
+        "apiname": "BillToContactId",
+        "description": "The contact to bill for the order, referenced by a lookup to the Contact object.",
+        "datatype": "Lookup(Contact)"
+      },
+      {
+        "apiname": "BillingAddress",
+        "description": "The billing address associated with the order.",
+        "datatype": "Address"
+      },
+      {
+        "apiname": "BillingEmailAddress",
+        "description": "The email address for billing associated with the order.",
+        "datatype": "Email"
+      },
+      {
+        "apiname": "BillingPhoneNumber",
+        "description": "The phone number associated with the billing for the order.",
+        "datatype": "Phone"
+      },
+      {
+        "apiname": "CompanyAuthorizedById",
+        "description": "The user who authorized the order on behalf of the company, referenced by a lookup to the User object.",
+        "datatype": "Lookup(User)"
+      },
+      {
+        "apiname": "CompanyAuthorizedDate",
+        "description": "The date when the company authorized the order.",
+        "datatype": "Date"
+      },
+      {
+        "apiname": "ContractEndDate",
+        "description": "The end date of the associated contract, if applicable.",
+        "datatype": "Date"
+      },
+      {
+        "apiname": "ContractName",
+        "description": "The name of the associated contract, if applicable.",
+        "datatype": "Text(80)"
+      },
+      {
+        "apiname": "ContractId",
+        "description": "The contract associated with the order, referenced by a lookup to the Contract object.",
+        "datatype": "Lookup(Contract)"
+      },
+      {
+        "apiname": "CustomerAuthorizedById",
+        "description": "The contact who authorized the order on behalf of the customer, referenced by a lookup to the Contact object.",
+        "datatype": "Lookup(Contact)"
+      },
+      {
+        "apiname": "CustomerAuthorizedDate",
+        "description": "The date when the customer authorized the order.",
+        "datatype": "Date"
+      },
+      {
+        "apiname": "CustomerSignedTitle",
+        "description": "The title of the customer representative who signed the order.",
+        "datatype": "Text(40)"
+      },
+      {
+        "apiname": "Description",
+        "description": "A detailed description of the order.",
+        "datatype": "Long Text Area(32000)"
+      },
+      {
+        "apiname": "DiscountPercent",
+        "description": "The discount percentage applied to the order.",
+        "datatype": "Percent(1, 2)"
+      },
+      {
+        "apiname": "FulfillmentPlanId",
+        "description": "The fulfillment plan associated with the order, referenced by a lookup to the Fulfillment Plan object.",
+        "datatype": "Lookup(Fulfillment Plan)"
+      },
+      {
+        "apiname": "LastPricedDate",
+        "description": "The date when the order was last priced.",
+        "datatype": "Date/Time"
+      },
+      {
+        "apiname": "LegalEntityId",
+        "description": "The legal entity associated with the order, referenced by a lookup to the Legal Entity object.",
+        "datatype": "Lookup(Legal Entity)"
+      },
+      {
+        "apiname": "OpportunityId",
+        "description": "The opportunity associated with the order, referenced by a lookup to the Opportunity object.",
+        "datatype": "Lookup(Opportunity)"
+      },
+      {
+        "apiname": "TotalAmount",
+        "description": "The total amount for the order.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "EndDate",
+        "description": "The end date for the order.",
+        "datatype": "Date"
+      },
+      {
+        "apiname": "Name",
+        "description": "The name of the order.",
+        "datatype": "Text(80)"
+      },
+      {
+        "apiname": "OrderNumber",
+        "description": "The order number, automatically generated by Salesforce.",
+        "datatype": "Auto Number"
+      },
+      {
+        "apiname": "OwnerId",
+        "description": "The user or group that owns the order, referenced by a lookup to the User or Group object.",
+        "datatype": "Lookup(User, Group)"
+      },
+      {
+        "apiname": "OrderReferenceNumber",
+        "description": "An external reference number for the order.",
+        "datatype": "Text(80)"
+      },
+      {
+        "apiname": "EffectiveDate",
+        "description": "The start date for the order.",
+        "datatype": "Date"
+      },
+      {
+        "apiname": "Type",
+        "description": "The type of order, such as standard or custom.",
+        "datatype": "Picklist"
+      },
+      {
+        "apiname": "OriginalActionType",
+        "description": "The type of action for the order, such as a new order or an amendment.",
+        "datatype": "Picklist"
+      },
+      {
+        "apiname": "OriginalOrderId",
+        "description": "The original order that this order is based on, if applicable.",
+        "datatype": "Lookup(Order)"
+      },
+      {
+        "apiname": "PaymentTermId",
+        "description": "The payment term associated with the order, referenced by a lookup to the Payment Term object.",
+        "datatype": "Lookup(Payment Term)"
+      },
+      {
+        "apiname": "PoDate",
+        "description": "The date of the purchase order associated with the order.",
+        "datatype": "Date"
+      },
+      {
+        "apiname": "PoNumber",
+        "description": "The purchase order number associated with the order.",
+        "datatype": "Text(80)"
+      },
+      {
+        "apiname": "Pricebook2Id",
+        "description": "The price book associated with the order, referenced by a lookup to the Price Book object.",
+        "datatype": "Lookup(Price Book)"
+      },
+      {
+        "apiname": "PricingContractId",
+        "description": "The pricing contract associated with the order, referenced by a lookup to the Contract object.",
+        "datatype": "Lookup(Contract)"
+      },
+      {
+        "apiname": "TotalRoundedLineAmount",
+        "description": "The total rounded amount for the order, calculated based on line item adjustments.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "QuoteId",
+        "description": "The quote associated with the order, referenced by a lookup to the Quote object.",
+        "datatype": "Lookup(Quote)"
+      },
+      {
+        "apiname": "IsReductionOrder",
+        "description": "Indicates whether the order is a reduction order.",
+        "datatype": "Checkbox"
+      },
+      {
+        "apiname": "RelatedOrderId",
+        "description": "The ID of the related order, if applicable.",
+        "datatype": "Lookup(Order)"
+      },
+      {
+        "apiname": "SalesTransactionTypeId",
+        "description": "The type of sales transaction for the order, referenced by a lookup to the Sales Transaction Type object.",
+        "datatype": "Lookup(Sales Transaction Type)"
+      },
+      {
+        "apiname": "ShipToContactId",
+        "description": "The contact to ship the order to, referenced by a lookup to the Contact object.",
+        "datatype": "Lookup(Contact)"
+      },
+      {
+        "apiname": "ShippingAddress",
+        "description": "The shipping address for the order.",
+        "datatype": "Address"
+      },
+      {
+        "apiname": "Status",
+        "description": "The current status of the order, such as draft or activated.",
+        "datatype": "Picklist",
+        "picklistValues": [
+          "Draft",
+          "Activated"
+        ]
+      },
+      {
+        "apiname": "TotalAdjustedDeliveryAmount",
+        "description": "The adjusted delivery amount for the order.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "TotalAdjDeliveryAmtWithTax",
+        "description": "The total adjusted delivery amount for the order, including tax.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "TotalAdjustedDeliveryTaxAmount",
+        "description": "The total tax amount applied to the adjusted delivery amount.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "TotalAdjustedProductAmount",
+        "description": "The total adjusted product amount for the order.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "GrandTotalAmount",
+        "description": "The grand total amount for the order, including all adjustments and taxes.",
+        "datatype": "Currency(16, 2)"
+      }
+    ]
+  },
+  {
+    "object": "OrderItem",
+    "description": "Represents an individual item in an order, detailing the product, pricing, and adjustments for that specific line item.",
+    "fields": [
+      {
+        "apiname": "AdjustedLineAmount",
+        "description": "The adjusted product subtotal for this order item, after any applicable adjustments.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "TotalAdjustedLineTaxAmount",
+        "description": "The adjusted tax amount for the product subtotal of this order item.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "AdjustedLineAmtWithTax",
+        "description": "The adjusted product subtotal with tax for this order item.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "Attribute_Selected_Values__c",
+        "description": "Long text area containing the selected values for attributes associated with the order item.",
+        "datatype": "Long Text Area(32768)"
+      },
+      {
+        "apiname": "AvailableQuantity",
+        "description": "The available quantity of the product for this order item.",
+        "datatype": "Number(16, 2)"
+      },
+      {
+        "apiname": "BillingReference2",
+        "description": "A reference field for billing information associated with this order item.",
+        "datatype": "Text(80)"
+      },
+      {
+        "apiname": "BillingTreatmentId",
+        "description": "Lookup to the Billing Treatment associated with this order item, defining how the billing is handled.",
+        "datatype": "Lookup(Billing Treatment)"
+      },
+      {
+        "apiname": "BindingInstanceTargetId",
+        "description": "The target for binding the instance, such as an associated order product or asset.",
+        "datatype": "Lookup(Order Product, Asset)"
+      },
+      {
+        "apiname": "CustomProductName",
+        "description": "Custom name for the product associated with this order item.",
+        "datatype": "Text(80)"
+      },
+      {
+        "apiname": "EstimatedDeliveryReference",
+        "description": "Reference for the estimated delivery associated with the order item.",
+        "datatype": "Text(255)"
+      },
+      {
+        "apiname": "DiscountAmount",
+        "description": "The discount amount applied to this order item.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "Discount",
+        "description": "The discount percentage applied to this order item.",
+        "datatype": "Percent(3, 2)"
+      },
+      {
+        "apiname": "TotalAdjustmentDistAmount",
+        "description": "The total distributed order adjustments applied to this order item.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "TotalAdjustmentDistTaxAmount",
+        "description": "The total distributed order adjustments tax amount for this order item.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "TotalAdjustmentDistAmtWithTax",
+        "description": "The total distributed order adjustments with tax for this order item.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "EarliestEstimatedDeliveryDate",
+        "description": "The earliest estimated delivery date for this order item.",
+        "datatype": "Date"
+      },
+      {
+        "apiname": "EarliestEstimatedDeliveryTime",
+        "description": "The earliest estimated delivery time for this order item.",
+        "datatype": "Time"
+      },
+      {
+        "apiname": "EffectiveGrantDate",
+        "description": "The effective grant date for this order item, such as when the product or service becomes available.",
+        "datatype": "Date"
+      },
+      {
+        "apiname": "EndDate",
+        "description": "The end date for the order item, typically related to subscription or contract term.",
+        "datatype": "Date"
+      },
+      {
+        "apiname": "EndQuantity",
+        "description": "The quantity of the product at the end of the term for this order item.",
+        "datatype": "Number(10, 2)"
+      },
+      {
+        "apiname": "Impressions__c",
+        "description": "The number of impressions associated with this order item (used for advertising or media contracts).",
+        "datatype": "Number(18, 0)"
+      },
+      {
+        "apiname": "IsPrimarySegment",
+        "description": "Indicates whether this order item is part of the primary segment of a campaign.",
+        "datatype": "Checkbox"
+      },
+      {
+        "apiname": "LatestEstimatedDeliveryDate",
+        "description": "The latest estimated delivery date for this order item.",
+        "datatype": "Date"
+      },
+      {
+        "apiname": "LatestEstimatedDeliveryTime",
+        "description": "The latest estimated delivery time for this order item.",
+        "datatype": "Time"
+      },
+      {
+        "apiname": "LegalEntityId",
+        "description": "The legal entity associated with this order item, referenced by a lookup to the Legal Entity object.",
+        "datatype": "Lookup(Legal Entity)"
+      },
+      {
+        "apiname": "Description",
+        "description": "A brief description of the order item.",
+        "datatype": "Text(255)"
+      },
+      {
+        "apiname": "LineNumber",
+        "description": "The line number for the order item, used to identify the order item in the list.",
+        "datatype": "Number(9, 0)"
+      },
+      {
+        "apiname": "ListPrice",
+        "description": "The list price of the product associated with this order item.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "NetTotalPrice",
+        "description": "The net total price for this order item, after any applicable discounts.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "NetUnitPrice",
+        "description": "The net unit price for the product or service in this order item, after any applicable discounts.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "OrderId",
+        "description": "The order associated with this order item, referenced by a lookup to the Order object.",
+        "datatype": "Lookup(Order)"
+      },
+      {
+        "apiname": "OrderActionId",
+        "description": "The action associated with this order item, such as add, amend, or delete.",
+        "datatype": "Lookup(Order Action)"
+      },
+      {
+        "apiname": "OrderDeliveryGroupId",
+        "description": "The delivery group associated with this order item, referenced by a lookup to the Order Delivery Group object.",
+        "datatype": "Lookup(Order Delivery Group)"
+      },
+      {
+        "apiname": "OrderItemGroupId",
+        "description": "The order item group associated with this order item, referenced by a lookup to the Order Product Group object.",
+        "datatype": "Lookup(Order Product Group)"
+      },
+      {
+        "apiname": "OrderItemNumber",
+        "description": "The unique order item number, automatically generated by Salesforce.",
+        "datatype": "Auto Number"
+      },
+      {
+        "apiname": "OrderItemRecipientId",
+        "description": "The recipient of the order item, referenced by a lookup to the Order Product Recipient object.",
+        "datatype": "Lookup(Order Product Recipient)"
+      },
+      {
+        "apiname": "OriginalOrderItemId",
+        "description": "The original order product that this item is derived from, if applicable.",
+        "datatype": "Lookup(Order Product)"
+      },
+      {
+        "apiname": "PartnerDiscountPercent",
+        "description": "The discount percentage applied to the partner for this order item.",
+        "datatype": "Percent(3, 2)"
+      },
+      {
+        "apiname": "PartnerUnitPrice",
+        "description": "The unit price for the partner, in the specified currency.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "PeriodBoundaryDay",
+        "description": "The day associated with the period boundary for the order item.",
+        "datatype": "Number(9, 0)"
+      },
+      {
+        "apiname": "PriceWaterfallIdentifier",
+        "description": "Unique identifier for the price waterfall associated with the order item.",
+        "datatype": "Text(80)"
+      },
+      {
+        "apiname": "PricingContractId",
+        "description": "The pricing contract associated with the order item, referenced by a lookup to the Contract object.",
+        "datatype": "Lookup(Contract)"
+      },
+      {
+        "apiname": "PricingTermCount",
+        "description": "The number of periods for the pricing term of the order item.",
+        "datatype": "Number(16, 2)"
+      },
+      {
+        "apiname": "Product2Id",
+        "description": "The product associated with this order item, referenced by a lookup to the Product object.",
+        "datatype": "Lookup(Product)"
+      },
+      {
+        "apiname": "TotalLineAdjustmentAmount",
+        "description": "The total adjustment amount applied to this order item.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "TotalLineAdjustmentTaxAmount",
+        "description": "The total adjustment tax amount applied to this order item.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "TotalLineAdjustmentAmtWithTax",
+        "description": "The total adjustment amount with tax applied to this order item.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "TotalLineAmount",
+        "description": "The total amount for the order item, before adjustments and taxes.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "RoundedLineAmount",
+        "description": "The rounded total amount for the order item.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "TotalLineTaxAmount",
+        "description": "The total tax amount applied to this order item.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "ProrationPolicyId",
+        "description": "The proration policy associated with this order item, referenced by a lookup to the Proration Policy object.",
+        "datatype": "Lookup(Proration Policy)"
+      },
+      {
+        "apiname": "Quantity",
+        "description": "The quantity of the product or service for this order item.",
+        "datatype": "Number(16, 2)"
+      },
+      {
+        "apiname": "QuantityUnitOfMeasureId",
+        "description": "The unit of measure for the quantity of this order item, referenced by a lookup to the Unit of Measure object.",
+        "datatype": "Lookup(Unit of Measure)"
+      },
+      {
+        "apiname": "QuoteLineItemId",
+        "description": "The quote line item associated with this order item, referenced by a lookup to the Quote Line Item object.",
+        "datatype": "Lookup(Quote Line Item)"
+      },
+      {
+        "apiname": "RampIdentifier",
+        "description": "The identifier for ramp pricing associated with this order item.",
+        "datatype": "Text(255)"
+      },
+      {
+        "apiname": "RelatedOrderItemId",
+        "description": "The related order product for this order item, referenced by a lookup to the Order Product object.",
+        "datatype": "Lookup(Order Product)"
+      },
+      {
+        "apiname": "SegmentIdentifier",
+        "description": "The identifier for the segment associated with this order item.",
+        "datatype": "Text(255)"
+      },
+      {
+        "apiname": "SegmentName",
+        "description": "The name of the segment associated with this order item.",
+        "datatype": "Text(255)"
+      },
+      {
+        "apiname": "ServiceDate",
+        "description": "The start date for the service associated with this order item.",
+        "datatype": "Date"
+      },
+      {
+        "apiname": "StartQuantity",
+        "description": "The starting quantity of the product or service in this order item.",
+        "datatype": "Number(10, 2)"
+      },
+      {
+        "apiname": "Status",
+        "description": "The current status of the order item, such as active or completed.",
+        "datatype": "Picklist",
+        "picklistValues": [
+          "Draft",
+          "Activated",
+          "Shipped",
+          "Delivered",
+          "Superseded"
+        ]
+      },
+      {
+        "apiname": "SubscriptionTerm",
+        "description": "The subscription term for the order item, expressed in months.",
+        "datatype": "Number(9, 0)"
+      },
+      {
+        "apiname": "TaxTreatmentId",
+        "description": "The tax treatment associated with this order item, referenced by a lookup to the Tax Treatment object.",
+        "datatype": "Lookup(Tax Treatment)"
+      },
+      {
+        "apiname": "TotalAdjustmentAmount",
+        "description": "The total amount of adjustments applied to this order item.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "TotalAdjustmentTaxAmount",
+        "description": "The total tax amount applied to the adjustments for this order item.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "TotalAdjustmentAmtWithTax",
+        "description": "The total adjustment amount with tax applied to this order item.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "TotalAmtWithTax",
+        "description": "The total amount with tax applied to this order item.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "TotalPrice",
+        "description": "The total price for the order item.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "TotalTaxAmount",
+        "description": "The total tax amount for the order item.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "Type",
+        "description": "The type of order item, such as product or service.",
+        "datatype": "Picklist",
+        "picklistValues": [
+          "Order Product",
+          "Delivery Charge",
+          "Fee"
+        ]
+      },
+      {
+        "apiname": "UnitPrice",
+        "description": "The unit price for the product or service in this order item.",
+        "datatype": "Currency(16, 2)"
+      }
+    ]
+  },
+  {
+    "object": "Invoice",
+    "description": "Represents a document detailing the total amount owed for products or services provided to a customer, including taxes, adjustments, and payment terms.",
+    "fields": [
+      {
+        "apiname": "Balance",
+        "description": "The balance amount remaining to be paid for the invoice.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "BillToContactId",
+        "description": "The contact to bill for the invoice, referenced by a lookup to the Contact object.",
+        "datatype": "Lookup(Contact)"
+      },
+      {
+        "apiname": "BillingAccountId",
+        "description": "The account associated with the billing of the invoice, referenced by a lookup to the Account object.",
+        "datatype": "Lookup(Account)"
+      },
+      {
+        "apiname": "CorporateCurrencyCvsnDate",
+        "description": "The date for corporate currency conversion related to the invoice.",
+        "datatype": "Date"
+      },
+      {
+        "apiname": "CorporateCurrencyCvsnRate",
+        "description": "The currency conversion rate applied for the invoice, if relevant to corporate currency.",
+        "datatype": "Number(8, 10)"
+      },
+      {
+        "apiname": "CorpCrcyCnvTotAmtWithTax",
+        "description": "The total amount with tax after corporate currency conversion.",
+        "datatype": "Number(12, 6)"
+      },
+      {
+        "apiname": "CreatedDate",
+        "description": "The date and time when the invoice was created.",
+        "datatype": "Date/Time"
+      },
+      {
+        "apiname": "CreationMode",
+        "description": "The mode in which the invoice was created (e.g., manual, automated).",
+        "datatype": "Picklist"
+      },
+      {
+        "apiname": "DaysInvoiceOpen",
+        "description": "The number of days the invoice has been open since its creation.",
+        "datatype": "Formula (Number)"
+      },
+      {
+        "apiname": "DaysInvoiceOverdue",
+        "description": "The number of days the invoice is overdue based on the due date.",
+        "datatype": "Formula (Number)"
+      },
+      {
+        "apiname": "Description",
+        "description": "A brief description of the invoice or the associated service/product.",
+        "datatype": "Text(255)"
+      },
+      {
+        "apiname": "DocumentNumber",
+        "description": "The unique identifier for the invoice document, automatically generated.",
+        "datatype": "Auto Number"
+      },
+      {
+        "apiname": "DueDate",
+        "description": "The date by which the invoice payment is due.",
+        "datatype": "Date"
+      },
+      {
+        "apiname": "FullSettlementDate",
+        "description": "The date when the invoice is fully settled.",
+        "datatype": "Date"
+      },
+      {
+        "apiname": "InvBatchDraftToPostedRunId",
+        "description": "Lookup to the invoice batch draft to posted run associated with this invoice.",
+        "datatype": "Lookup(Invoice Batch Draft to Posted Run)"
+      },
+      {
+        "apiname": "InvoiceBatchRunId",
+        "description": "Lookup to the invoice batch run associated with this invoice.",
+        "datatype": "Lookup(Invoice Batch Run)"
+      },
+      {
+        "apiname": "InvoiceDate",
+        "description": "The date the invoice was issued.",
+        "datatype": "Date"
+      },
+      {
+        "apiname": "IsInvoiceLocked",
+        "description": "Indicates whether the invoice is locked, preventing further changes.",
+        "datatype": "Checkbox"
+      },
+      {
+        "apiname": "InvoiceLockedDateTime",
+        "description": "The date and time when the invoice was locked.",
+        "datatype": "Date/Time"
+      },
+      {
+        "apiname": "InvoiceNumber",
+        "description": "The invoice number, typically unique to the invoice.",
+        "datatype": "Text(10)"
+      },
+      {
+        "apiname": "IsBillingScheduleGroupSkipped",
+        "description": "Indicates whether the billing schedule group has been skipped for this invoice.",
+        "datatype": "Checkbox"
+      },
+      {
+        "apiname": "NetCreditsApplied",
+        "description": "The net credits applied to the invoice.",
+        "datatype": "Formula (Currency)"
+      },
+      {
+        "apiname": "NetPaymentsApplied",
+        "description": "The net payments applied to the invoice.",
+        "datatype": "Formula (Currency)"
+      },
+      {
+        "apiname": "OwnerId",
+        "description": "The user or group that owns the invoice, referenced by a lookup to the User or Group object.",
+        "datatype": "Lookup(User, Group)"
+      },
+      {
+        "apiname": "PaymentTermId",
+        "description": "The payment term associated with the invoice, referenced by a lookup to the Payment Term object.",
+        "datatype": "Lookup(Payment Term)"
+      },
+      {
+        "apiname": "PostedDate",
+        "description": "The date when the invoice was posted.",
+        "datatype": "Date"
+      },
+      {
+        "apiname": "ReferenceEntityId",
+        "description": "Lookup to the reference entity associated with this invoice, such as an Order or Credit Memo.",
+        "datatype": "Lookup(Order, Credit Memo)"
+      },
+      {
+        "apiname": "Status",
+        "description": "The current status of the invoice, such as open, paid, or overdue.",
+        "datatype": "Picklist"
+      },
+      {
+        "apiname": "TotalAdjustmentAmount",
+        "description": "The total adjustment amount applied to the invoice, calculated as a roll-up summary from Invoice Line Items.",
+        "datatype": "Roll-Up Summary (SUM Invoice Line)"
+      },
+      {
+        "apiname": "TotalAdjustmentAmountWithTax",
+        "description": "The total adjustment amount with tax applied to the invoice.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "TotalAdjustmentTaxAmount",
+        "description": "The total tax amount applied to the adjustments for the invoice.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "TotalAmount",
+        "description": "The total amount of the invoice, including adjustments and taxes.",
+        "datatype": "Formula (Currency)"
+      },
+      {
+        "apiname": "TotalChargeAmountWithTax",
+        "description": "The total charge amount including tax for the invoice.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "TotalChargeTaxAmount",
+        "description": "The total charge tax amount for the invoice.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "TotalChargeAmount",
+        "description": "The total charge amount for the invoice, excluding tax.",
+        "datatype": "Roll-Up Summary (SUM Invoice Line)"
+      },
+      {
+        "apiname": "TotalConvertedNegAmount",
+        "description": "The total converted negative amount for the invoice, if applicable.",
+        "datatype": "Roll-Up Summary (SUM Invoice Line)"
+      },
+      {
+        "apiname": "TotalTaxAmount",
+        "description": "The total tax amount for the invoice, calculated as a roll-up summary from Invoice Line Items.",
+        "datatype": "Roll-Up Summary (SUM Invoice Line)"
+      },
+      {
+        "apiname": "TotalAmountWithTax",
+        "description": "The total amount of the invoice, including tax.",
+        "datatype": "Formula (Currency)"
+      }
+    ]
+  },
+  {
+    "object": "InvoiceLine",
+    "description": "Represents an individual line item within an invoice, detailing the product, quantity, pricing, adjustments, and related taxes.",
+    "fields": [
+      {
+        "apiname": "AdjustmentAmount",
+        "description": "The adjustment amount applied to this invoice line item.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "AdjustmentAmountWithTax",
+        "description": "The adjustment amount applied to this invoice line item, including tax.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "AdjustmentTaxAmount",
+        "description": "The tax amount applied to the adjustment for this invoice line item.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "Balance",
+        "description": "The remaining balance for this invoice line item.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "BillingAddressId",
+        "description": "The billing address associated with this invoice line item, referenced by a lookup to the Invoice Address Group object.",
+        "datatype": "Lookup(Invoice Address Group)"
+      },
+      {
+        "apiname": "BillingScheduleId",
+        "description": "The billing schedule associated with this invoice line item, referenced by a lookup to the Billing Schedule object.",
+        "datatype": "Lookup(Billing Schedule)"
+      },
+      {
+        "apiname": "BillingScheduleGroupId",
+        "description": "The billing schedule group associated with this invoice line item, referenced by a lookup to the Billing Schedule Group object.",
+        "datatype": "Lookup(Billing Schedule Group)"
+      },
+      {
+        "apiname": "ChargeAmount",
+        "description": "The charge amount for this invoice line item, excluding tax.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "ChargeAmountWithTax",
+        "description": "The charge amount for this invoice line item, including tax.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "ChargeConvertedNegAmount",
+        "description": "The converted negative charge amount for this invoice line item, if applicable.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "ChargeTaxAmount",
+        "description": "The tax amount applied to the charge for this invoice line item.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "ConvertedNegAmount",
+        "description": "The converted negative amount for this invoice line item.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "CorporateCurrencyCvsnDate",
+        "description": "The date for corporate currency conversion for this invoice line item.",
+        "datatype": "Date"
+      },
+      {
+        "apiname": "CorporateCurrencyCvsnRate",
+        "description": "The corporate currency conversion rate applied to this invoice line item.",
+        "datatype": "Number(8, 10)"
+      },
+      {
+        "apiname": "CorpCurrencyCnvChargeAmt",
+        "description": "The corporate currency converted charge amount for this invoice line item.",
+        "datatype": "Number(12, 6)"
+      },
+      {
+        "apiname": "CorpCurrencyCnvTotalTaxAmt",
+        "description": "The corporate currency converted total tax amount for this invoice line item.",
+        "datatype": "Number(12, 6)"
+      },
+      {
+        "apiname": "CreatedDate",
+        "description": "The date and time when the invoice line item was created.",
+        "datatype": "Date/Time"
+      },
+      {
+        "apiname": "Description",
+        "description": "A brief description of the invoice line item.",
+        "datatype": "Text(255)"
+      },
+      {
+        "apiname": "HasMultipleItems",
+        "description": "Indicates whether there are multiple items associated with this invoice line item.",
+        "datatype": "Checkbox"
+      },
+      {
+        "apiname": "InvoiceId",
+        "description": "The invoice associated with this invoice line item, referenced by a master-detail relationship to the Invoice object.",
+        "datatype": "Master-Detail(Invoice)"
+      },
+      {
+        "apiname": "InvoiceLineEndDate",
+        "description": "The end date for the invoice line item, if applicable.",
+        "datatype": "Date"
+      },
+      {
+        "apiname": "InvoiceLineStartDate",
+        "description": "The start date for the invoice line item.",
+        "datatype": "Date"
+      },
+      {
+        "apiname": "LegalEntityId",
+        "description": "The legal entity associated with this invoice line item, referenced by a lookup to the Legal Entity object.",
+        "datatype": "Lookup(Legal Entity)"
+      },
+      {
+        "apiname": "LegalEntityAccountingPeriodId",
+        "description": "The legal entity accounting period associated with this invoice line item, referenced by a lookup to the Legal Entity Accounting Period object.",
+        "datatype": "Lookup(Legal Entity Accounting Period)"
+      },
+      {
+        "apiname": "LineAmount",
+        "description": "The total amount for the invoice line item, calculated as a formula.",
+        "datatype": "Formula (Currency)"
+      },
+      {
+        "apiname": "Name",
+        "description": "The name or identifier for the invoice line item.",
+        "datatype": "Text(255)"
+      },
+      {
+        "apiname": "NetCreditsApplied",
+        "description": "The net credits applied to this invoice line item.",
+        "datatype": "Formula (Currency)"
+      },
+      {
+        "apiname": "ParentInvoiceLineId",
+        "description": "The parent invoice line item, if this invoice line item is a child or adjustment.",
+        "datatype": "Lookup(Invoice Line)"
+      },
+      {
+        "apiname": "Product2Id",
+        "description": "The product associated with this invoice line item, referenced by a lookup to the Product object.",
+        "datatype": "Lookup(Product)"
+      },
+      {
+        "apiname": "Quantity",
+        "description": "The quantity of the product or service for this invoice line item.",
+        "datatype": "Number(16, 2)"
+      },
+      {
+        "apiname": "ReferenceEntityItemId",
+        "description": "The reference entity item associated with this invoice line item, such as an Order Product or Order Product Adjustment Line Item.",
+        "datatype": "Lookup(Order Product, Order Product Adjustment Line Item, Order Product Detail)"
+      },
+      {
+        "apiname": "ShippingAddressId",
+        "description": "The shipping address associated with this invoice line item, referenced by a lookup to the Invoice Address Group object.",
+        "datatype": "Lookup(Invoice Address Group)"
+      },
+      {
+        "apiname": "InvoiceStatus",
+        "description": "The status of the invoice line item, such as active or completed.",
+        "datatype": "Text(50)"
+      },
+      {
+        "apiname": "TaxAmount",
+        "description": "The tax amount applied to this invoice line item.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "TaxTreatmentId",
+        "description": "The tax treatment associated with this invoice line item, referenced by a lookup to the Tax Treatment object.",
+        "datatype": "Lookup(Tax Treatment)"
+      },
+      {
+        "apiname": "Type",
+        "description": "The type of the invoice line item, such as product or service.",
+        "datatype": "Picklist"
+      },
+      {
+        "apiname": "UnitOfMeasureId",
+        "description": "The unit of measure for the quantity of this invoice line item, referenced by a lookup to the Unit of Measure object.",
+        "datatype": "Lookup(Unit of Measure)"
+      },
+      {
+        "apiname": "UnitPrice",
+        "description": "The unit price of the product or service for this invoice line item.",
+        "datatype": "Currency(16, 2)"
+      }
+    ]
+  },
+  {
+    "object": "Asset",
+    "description": "Represents a physical or digital asset owned or leased by a customer, including information about its lifecycle, pricing, and related account and contact details.",
+    "fields": [
+      {
+        "apiname": "AccountId",
+        "description": "The account associated with the asset, referenced by a lookup to the Account object.",
+        "datatype": "Lookup(Account)"
+      },
+      {
+        "apiname": "Address",
+        "description": "The address associated with the asset.",
+        "datatype": "Address"
+      },
+      {
+        "apiname": "AssetLevel",
+        "description": "The level or tier of the asset, represented as a number.",
+        "datatype": "Number(9, 0)"
+      },
+      {
+        "apiname": "Name",
+        "description": "The name of the asset.",
+        "datatype": "Text(255)"
+      },
+      {
+        "apiname": "OwnerId",
+        "description": "The user who owns the asset, referenced by a lookup to the User object.",
+        "datatype": "Lookup(User)"
+      },
+      {
+        "apiname": "AssetProvidedById",
+        "description": "The account that provided the asset, referenced by a lookup to the Account object.",
+        "datatype": "Lookup(Account)"
+      },
+      {
+        "apiname": "AssetServicedById",
+        "description": "The account that services the asset, referenced by a lookup to the Account object.",
+        "datatype": "Lookup(Account)"
+      },
+      {
+        "apiname": "BindingInstanceTargetId",
+        "description": "The target for binding the instance, such as an associated asset or account.",
+        "datatype": "Lookup(Asset, Account)"
+      },
+      {
+        "apiname": "IsCompetitorProduct",
+        "description": "Indicates whether the asset is a competitor product.",
+        "datatype": "Checkbox"
+      },
+      {
+        "apiname": "ConsequenceOfFailure",
+        "description": "The consequence of failure for the asset, represented as a picklist value.",
+        "datatype": "Picklist"
+      },
+      {
+        "apiname": "ContactId",
+        "description": "The contact associated with the asset, referenced by a lookup to the Contact object.",
+        "datatype": "Lookup(Contact)"
+      },
+      {
+        "apiname": "CurrentAmount",
+        "description": "The current amount associated with the asset.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "CurrentLifecycleEndDate",
+        "description": "The current end date of the asset's lifecycle.",
+        "datatype": "Date/Time"
+      },
+      {
+        "apiname": "CurrentMrr",
+        "description": "The current Monthly Recurring Revenue (MRR) associated with the asset.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "CurrentQuantity",
+        "description": "The current quantity of the asset.",
+        "datatype": "Number(12, 2)"
+      },
+      {
+        "apiname": "CurrentQuantityUnitId",
+        "description": "The unit of measure for the current quantity of the asset, referenced by a lookup to the Unit of Measure object.",
+        "datatype": "Lookup(Unit of Measure)"
+      },
+      {
+        "apiname": "Description",
+        "description": "A description of the asset.",
+        "datatype": "Long Text Area(32000)"
+      },
+      {
+        "apiname": "DigitalAssetStatus",
+        "description": "The status of the digital asset, represented as a picklist value.",
+        "datatype": "Picklist"
+      },
+      {
+        "apiname": "ExternalIdentifier",
+        "description": "An external identifier for the asset, used for integration with external systems.",
+        "datatype": "Text(255)"
+      },
+      {
+        "apiname": "InstallDate",
+        "description": "The date the asset was installed.",
+        "datatype": "Date"
+      },
+      {
+        "apiname": "IsInternal",
+        "description": "Indicates whether the asset is internal to the company or external.",
+        "datatype": "Checkbox"
+      },
+      {
+        "apiname": "LifecycleEndDate",
+        "description": "The end date of the asset's lifecycle.",
+        "datatype": "Date/Time"
+      },
+      {
+        "apiname": "LifecycleStartDate",
+        "description": "The start date of the asset's lifecycle.",
+        "datatype": "Date/Time"
+      },
+      {
+        "apiname": "HasLifecycleManagement",
+        "description": "Indicates whether the asset is managed through a lifecycle management system.",
+        "datatype": "Checkbox"
+      },
+      {
+        "apiname": "LocationId",
+        "description": "The location associated with the asset, referenced by a lookup to the Location object.",
+        "datatype": "Lookup(Location)"
+      },
+      {
+        "apiname": "ManufactureDate",
+        "description": "The manufacturing date of the asset.",
+        "datatype": "Date"
+      },
+      {
+        "apiname": "ParentId",
+        "description": "The parent asset, if this asset is part of a larger asset or product.",
+        "datatype": "Lookup(Asset)"
+      },
+      {
+        "apiname": "Price",
+        "description": "The price of the asset.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "PricingSource",
+        "description": "The source of pricing for the asset, such as a price book or custom price list.",
+        "datatype": "Picklist"
+      },
+      {
+        "apiname": "Product2Id",
+        "description": "The product associated with this asset, referenced by a lookup to the Product object.",
+        "datatype": "Lookup(Product)"
+      },
+      {
+        "apiname": "ProductCode",
+        "description": "The product code for the asset, typically used for inventory and tracking.",
+        "datatype": "Text(255)"
+      },
+      {
+        "apiname": "ProductDescription",
+        "description": "A description of the product associated with this asset.",
+        "datatype": "Text(4000)"
+      },
+      {
+        "apiname": "ProductFamily",
+        "description": "The family of the product associated with this asset, represented as a picklist value.",
+        "datatype": "Picklist"
+      },
+      {
+        "apiname": "StockKeepingUnit",
+        "description": "The stock-keeping unit (SKU) for the product associated with the asset.",
+        "datatype": "Text(180)"
+      },
+      {
+        "apiname": "PurchaseDate",
+        "description": "The purchase date of the asset.",
+        "datatype": "Date"
+      },
+      {
+        "apiname": "Quantity",
+        "description": "The quantity of the asset.",
+        "datatype": "Number(10, 2)"
+      },
+      {
+        "apiname": "RenewalTerm",
+        "description": "The renewal term for the asset, expressed in months or other units.",
+        "datatype": "Number(16, 2)"
+      },
+      {
+        "apiname": "RenewalTermUnit",
+        "description": "The unit of measurement for the renewal term, such as months or years.",
+        "datatype": "Picklist"
+      },
+      {
+        "apiname": "RootAssetId",
+        "description": "The root asset if this asset is part of a hierarchy of assets.",
+        "datatype": "Lookup(Asset)"
+      },
+      {
+        "apiname": "SerialNumber",
+        "description": "The serial number of the asset.",
+        "datatype": "Text(80)"
+      },
+      {
+        "apiname": "Status",
+        "description": "The status of the asset, such as active, inactive, or retired.",
+        "datatype": "Picklist"
+      },
+      {
+        "apiname": "StatusReason",
+        "description": "The reason for the current status of the asset, represented as a picklist value.",
+        "datatype": "Picklist"
+      },
+      {
+        "apiname": "TotalLifecycleAmount",
+        "description": "The total amount associated with the asset over its lifecycle.",
+        "datatype": "Currency(16, 2)"
+      },
+      {
+        "apiname": "Uuid",
+        "description": "A unique identifier for the asset, typically used for tracking purposes.",
+        "datatype": "Text(255)"
+      },
+      {
+        "apiname": "UsageEndDate",
+        "description": "The end date for usage of the asset, such as the end of a subscription or lease.",
+        "datatype": "Date"
+      }
+    ]
+  }
+]

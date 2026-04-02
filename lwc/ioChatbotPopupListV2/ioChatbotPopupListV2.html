@@ -1,0 +1,280 @@
+<template>
+    <div class="v2-shell">
+        <div class="v2-container">
+            <button class="v2-close-btn" onclick={handleClose} title="Close">
+                <lightning-icon icon-name="utility:close" alternative-text="Close" size="small"></lightning-icon>
+            </button>
+
+            <div class="v2-header-info">
+                <div class="slds-page-header slds-page-header_record-home v2-page-header">
+                    <div class="slds-media slds-media_center slds-has-flexi-truncate">
+                        <div class="slds-media__figure">
+                            <lightning-icon icon-name="standard:orders" size="small"></lightning-icon>
+                        </div>
+                        <div class="slds-media__body">
+                            <div class="slds-page-header__name">
+                                <div class="slds-page-header__name-title">
+                                    <h1>
+                                        <template if:true={v2OrderUrl}>
+                                            <a class="slds-page-header__title slds-truncate v2-order-link" href={v2OrderUrl} target="_blank" title={v2CampaignName}>
+                                                {v2CampaignName}
+                                            </a>
+                                        </template>
+                                        <template if:false={v2OrderUrl}>
+                                            <span class="slds-page-header__title slds-truncate" title={v2CampaignName}>
+                                                {v2CampaignName}
+                                            </span>
+                                        </template>
+                                    </h1>
+                                </div>
+                            </div>
+                            <div class="slds-page-header__name-meta v2-name-meta">
+                                <template if:true={v2HeaderStatus}>
+                                    <span class="slds-badge">{v2HeaderStatus}</span>
+                                </template>
+                                <template if:true={v2EffectiveDate}>
+                                    <span class="v2-meta-sep">·</span>
+                                    <span class="v2-date-meta">Effective: {v2EffectiveDate}</span>
+                                </template>
+                                <template if:true={v2EndDate}>
+                                    <span class="v2-meta-sep">·</span>
+                                    <span class="v2-date-meta">End: {v2EndDate}</span>
+                                </template>
+                                <template if:true={v2QuoteUrl}>
+                                    <span class="v2-meta-sep">·</span>
+                                    <a class="slds-text-link" href={v2QuoteUrl} target="_blank">Quote</a>
+                                </template>
+                                <template if:true={v2OpportunityUrl}>
+                                    <span class="v2-meta-sep">·</span>
+                                    <a class="slds-text-link" href={v2OpportunityUrl} target="_blank">Opportunity</a>
+                                </template>
+                                <template if:true={v2AccountUrl}>
+                                    <span class="v2-meta-sep">·</span>
+                                    <a class="slds-text-link" href={v2AccountUrl} target="_blank">Advertiser</a>
+                                </template>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="v2-toolbar">
+                <div class="v2-toolbar-left">
+                    <h3 class="v2-section-title">Line Item Results</h3>
+                    <div class="v2-legend">
+                        <span class="legend-label">Legend:</span>
+                        <span class="legend-item legend-inserted">
+                            <lightning-icon icon-name="utility:success" size="xx-small" class="legend-icon"></lightning-icon>
+                            Inserted
+                        </span>
+                        <span class="legend-item legend-rejected">
+                            <lightning-icon icon-name="utility:error" size="xx-small" class="legend-icon"></lightning-icon>
+                            Rejected
+                        </span>
+                        <span class="legend-item legend-skipped">
+                            <lightning-icon icon-name="utility:warning" size="xx-small" class="legend-icon"></lightning-icon>
+                            Skipped
+                        </span>
+                    </div>
+                </div>
+                <div class="v2-toolbar-right">
+                    <div class="search-box">
+                        <lightning-icon icon-name="utility:search" size="x-small" class="search-icon"></lightning-icon>
+                        <input type="text" placeholder="Search product, country..." class="search-input" value={v2SearchTerm} oninput={handleV2SearchInput} />
+                    </div>
+                    <div class="filter-dropdown-wrapper">
+                        <button class="filter-btn" onclick={toggleV2FilterDropdown} onblur={handleV2FilterBlur}>
+                            <lightning-icon icon-name="utility:filterList" size="x-small" class="btn-icon"></lightning-icon>
+                            {v2CurrentFilterLabel}
+                            <lightning-icon icon-name="utility:down" size="xx-small" class="btn-arrow"></lightning-icon>
+                        </button>
+                        <template if:true={v2ShowFilterDropdown}>
+                            <div class="filter-dropdown-menu">
+                                <template for:each={v2StatusOptions} for:item="option">
+                                    <div key={option.value} class="filter-dropdown-item" data-value={option.value} onclick={handleV2FilterSelect}>
+                                        <template if:true={option.isSelected}>
+                                            <lightning-icon icon-name="utility:check" size="xx-small" class="filter-check-icon"></lightning-icon>
+                                        </template>
+                                        <span>{option.label}</span>
+                                    </div>
+                                </template>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </div>
+
+            <div class="v2-table-container">
+                <table class="v2-table">
+                    <thead>
+                        <tr>
+                            <th class="col-checkbox"><input type="checkbox" /></th>
+                            <template for:each={v2ColumnHeaders} for:item="col">
+                                <th key={col.key} class="col-sortable">
+                                    {col.key}
+                                    <lightning-icon icon-name="utility:chevrondown" size="xx-small"></lightning-icon>
+                                </th>
+                            </template>
+                            <th>STATUS</th>
+                            <th>ACTIONS</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <template for:each={filteredPopupListV2Items} for:item="item">
+                            <tr key={item.id} class={item.rowClass}>
+                                <td class="col-checkbox"><input type="checkbox" /></td>
+                                <template for:each={item.columns} for:item="col">
+                                    <td key={col.key} class="col-data">
+                                        <div class="cell-content" title={col.value}>{col.value}</div>
+                                    </td>
+                                </template>
+                                <td class="col-status">
+                                    <div class="status-badge">
+                                        <lightning-icon icon-name={item.statusIcon} size="xx-small" class="status-icon"></lightning-icon>
+                                        <span>{item.statusLabel}</span>
+                                    </div>
+                                </td>
+                                <td class="col-actions">
+                                    <div class="action-menu-wrapper">
+                                        <button class="action-btn" data-itemid={item.id} onclick={toggleV2ActionMenu}>
+                                            <lightning-icon icon-name="utility:threedots_vertical" size="x-small"></lightning-icon>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                            <template if:true={item.isDetailsExpanded}>
+                                <tr key={item.id} class="details-row">
+                                    <td colspan="10">
+                                        <div class={item.detailsContainerClass}>
+                                            <div class="details-header">
+                                                <div class={item.detailsTitleClass}>Line Item Details</div>
+                                                <div class="details-header-actions">
+                                                    <template if:false={isEditMode}>
+                                                        <button class="details-edit-btn" data-itemid={item.id} onclick={enterEditMode} title="Edit">
+                                                            <lightning-icon icon-name="utility:edit" size="x-small"></lightning-icon>
+                                                        </button>
+                                                    </template>
+                                                    <template if:true={isEditMode}>
+                                                        <button class="details-save-btn" data-itemid={item.id} onclick={handleSaveDetails} disabled={detailsSaving} title="Save">
+                                                            <span>Save</span>
+                                                        </button>
+                                                        <button class="details-cancel-btn" data-itemid={item.id} onclick={cancelEdit} title="Cancel">
+                                                            Cancel
+                                                        </button>
+                                                    </template>
+                                                    <button class="details-close-btn" data-itemid={item.id} onclick={collapseDetails} title="Collapse">
+                                                        <lightning-icon icon-name="utility:close" size="x-small"></lightning-icon>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                            <div class="details-grid">
+                                                <template for:each={item.detailsData} for:item="detail">
+                                                    <div key={detail.key} class="detail-item">
+                                                        <span class="detail-label">{detail.label}</span>
+                                                        <template if:true={isEditMode}>
+                                                            <lightning-input type={detail.inputType} step={detail.step} value={detail.inputValue} data-key={detail.key} onchange={handleDetailInputChange}></lightning-input>
+                                                        </template>
+                                                        <template if:false={isEditMode}>
+                                                            <template if:true={detail.isLink}>
+                                                                <a href={detail.url} target="_blank" class="detail-value-link" data-recordid={detail.recordId}>{detail.displayValue}</a>
+                                                            </template>
+                                                            <template if:false={detail.isLink}>
+                                                                <span class="detail-value">{detail.displayValue}</span>
+                                                            </template>
+                                                        </template>
+                                                    </div>
+                                                </template>
+                                            </div>
+
+                                            <template if:true={item.hasError}>
+                                                <div class="details-error-section">
+                                                    <div class="details-error-header">
+                                                        <lightning-icon icon-name="utility:error" size="x-small" class="details-error-icon"></lightning-icon>
+                                                        <span class="details-error-title">Error Information</span>
+                                                    </div>
+                                                    <div class="details-error-list">
+                                                        <template for:each={item.errorData} for:item="err">
+                                                            <div key={err.id} class="details-error-item">
+                                                                <div class="details-error-code-row">
+                                                                    <span class="details-error-label">Error Code:</span>
+                                                                    <span class="details-error-code">{err.statusCode}</span>
+                                                                </div>
+                                                                <div class="details-error-message-row">
+                                                                    <span class="details-error-label">Message:</span>
+                                                                    <span class="details-error-message">{err.message}</span>
+                                                                </div>
+                                                                <template if:true={err.fields}>
+                                                                    <div class="details-error-fields-row">
+                                                                        <span class="details-error-label">Fields:</span>
+                                                                        <span class="details-error-fields">{err.fields}</span>
+                                                                    </div>
+                                                                </template>
+                                                            </div>
+                                                        </template>
+                                                    </div>
+                                                </div>
+                                            </template>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </template>
+
+                            <template if:true={item.isErrorDropdownOpen}>
+                                <tr key={item.id} class="error-dropdown-row">
+                                    <td colspan="10">
+                                        <div class="error-dropdown-container">
+                                            <div class="error-dropdown-header">
+                                                <lightning-icon icon-name="utility:error" size="x-small" class="error-icon"></lightning-icon>
+                                                <span class="error-dropdown-title">Error Details</span>
+                                                <button class="error-close-btn" data-itemid={item.id} onclick={closeErrorDropdown} title="Close">
+                                                    <lightning-icon icon-name="utility:close" size="xx-small"></lightning-icon>
+                                                </button>
+                                            </div>
+                                            <div class="error-list">
+                                                <template for:each={item.errorData} for:item="err">
+                                                    <div key={err.id} class="error-item">
+                                                        <div class="error-status-code">
+                                                            <span class="error-code-label">Error Code:</span>
+                                                            <span class="error-code-value">{err.statusCode}</span>
+                                                        </div>
+                                                        <div class="error-message-row">
+                                                            <span class="error-message-label">Message:</span>
+                                                            <span class="error-message-value">{err.message}</span>
+                                                        </div>
+                                                        <template if:true={err.fields}>
+                                                            <div class="error-fields-row">
+                                                                <span class="error-fields-label">Fields:</span>
+                                                                <span class="error-fields-value">{err.fields}</span>
+                                                            </div>
+                                                        </template>
+                                                    </div>
+                                                </template>
+                                            </div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </template>
+                        </template>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="v2-footer">
+                <div class="footer-info">Showing <strong>{v2DisplayCount}</strong></div>
+            </div>
+        </div>
+    </div>
+
+    <template if:true={v2OpenActionMenuId}>
+        <div class="action-menu-overlay" onclick={closeV2ActionMenu}></div>
+        <div class={v2ActionMenuClass} style={v2ActionMenuStyle}>
+            <template for:each={v2OpenActionMenuItems} for:item="action">
+                <div key={action.key} class="action-dropdown-item" data-action={action.key} data-itemid={v2OpenActionMenuId} onclick={handleV2ActionClick}>
+                    <lightning-icon icon-name={action.icon} size="xx-small" class={action.iconClass}></lightning-icon>
+                    <span>{action.label}</span>
+                </div>
+            </template>
+        </div>
+    </template>
+</template>
