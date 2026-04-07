@@ -55,6 +55,7 @@ class SalesforceClient:
             domain = self.config.get("SALESFORCE_DOMAIN", "login")
             api_version =  "63.0"
             if not (username and password and security_token):
+            
                 print(f"[{self.org_type}] Missing Salesforce credentials!")
                 return False
 
@@ -66,7 +67,7 @@ class SalesforceClient:
                 version=api_version
             )
             return True
-
+ 
         except Exception as e:
             logger.exception(f"❌ [{self.org_type}] Salesforce authentication failed: {e}")
             return False

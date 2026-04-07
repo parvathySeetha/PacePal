@@ -70,7 +70,7 @@ async def fetch_delivery_data_node(state: ReconcillationState) -> Reconcillation
 
     try:
         if not ensure_sf_connected(sf_client):
-            logger.error("❌ Salesforce connection failed")
+            logger.error("❌ ")
             state["error"] = "Salesforce connection failed"
             return state
 

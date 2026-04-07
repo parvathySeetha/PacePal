@@ -24,7 +24,7 @@ def get_salesforce_config(org_type: str) -> dict:
     return {
         "SALESFORCE_USERNAME": get_required("SALESFORCE_USERNAME"),
         "SALESFORCE_PASSWORD": get_required("SALESFORCE_PASSWORD"),
-        "SALESFORCE_SECURITY_TOKEN": get_required("SALESFORCE_SECURITY_TOKEN"),
+      "SALESFORCE_SECURITY_TOKEN": get_required("SALESFORCE_SECURITY_TOKEN"),
         "SALESFORCE_INSTANCE_URL": get_required("SALESFORCE_INSTANCE_URL"),
         "SALESFORCE_DOMAIN": get_required("SALESFORCE_DOMAIN", "login")
     }
