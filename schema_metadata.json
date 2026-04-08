@@ -3577,5 +3577,343 @@
         "datatype": "Date"
       }
     ]
+  },
+
+  {
+    "object": "Custom_Invoice__c",
+    "description": "Represents a custom invoice record used to capture billing details, invoice amounts, billing periods, reconciliation status, and impression-based metrics. This object is similar to the standard Salesforce Invoice object and is used for tracking invoicing activity related to Orders, billing accounts, and financial reconciliation processes.",
+    "fields": [
+      {
+        "FieldLabel": "Billing Account",
+        "apiname": "Billing_Account__c",
+        "description": "Lookup to the Billing Account associated with this invoice. This field identifies the account responsible for the billed charges on the invoice.",
+        "datatype": "Lookup (Billing Account)"
+      },
+      {
+        "FieldLabel": "Created By ID",
+        "apiname": "CreatedById",
+        "description": "Lookup to the User who created this invoice record.",
+        "datatype": "Lookup (User)"
+      },
+      {
+        "FieldLabel": "Created Date",
+        "apiname": "CreatedDate",
+        "description": "The date and time when this invoice record was created.",
+        "datatype": "Date/Time"
+      },
+      {
+        "FieldLabel": "Due Date",
+        "apiname": "Due_Date__c",
+        "description": "The due date by which payment for this invoice is expected.",
+        "datatype": "Date"
+      },
+      {
+        "FieldLabel": "End Date",
+        "apiname": "End_Date__c",
+        "description": "The end date of the billing period covered by this invoice.",
+        "datatype": "Date"
+      },
+      {
+        "FieldLabel": "Record ID",
+        "apiname": "Id",
+        "description": "The unique identifier for this invoice record.",
+        "datatype": "Id"
+      },
+      {
+        "FieldLabel": "Invoice Date",
+        "apiname": "Invoice_Date__c",
+        "description": "The date on which the invoice was issued.",
+        "datatype": "Date"
+      },
+      {
+        "FieldLabel": "Deleted",
+        "apiname": "IsDeleted",
+        "description": "Indicates whether this invoice record has been deleted.",
+        "datatype": "Checkbox"
+      },
+      {
+        "FieldLabel": "Last Modified By ID",
+        "apiname": "LastModifiedById",
+        "description": "Lookup to the User who last modified this invoice record.",
+        "datatype": "Lookup (User)"
+      },
+      {
+        "FieldLabel": "Last Modified Date",
+        "apiname": "LastModifiedDate",
+        "description": "The date and time when this invoice record was last modified.",
+        "datatype": "Date/Time"
+      },
+      {
+        "FieldLabel": "Invoice Number",
+        "apiname": "Name",
+        "description": "The invoice number used to identify this invoice record.",
+        "datatype": "Text"
+      },
+      {
+        "FieldLabel": "Order",
+        "apiname": "Order__c",
+        "description": "Lookup to the Order associated with this invoice. This field links the invoice to the source order for billing and reconciliation purposes.",
+        "datatype": "Lookup (Order)"
+      },
+      {
+        "FieldLabel": "Owner ID",
+        "apiname": "OwnerId",
+        "description": "Lookup to the User who owns this invoice record.",
+        "datatype": "Lookup (User)"
+      },
+      {
+        "FieldLabel": "Reconciliation Status",
+        "apiname": "Reconciliation_Status__c",
+        "description": "Picklist field that indicates the reconciliation state of the invoice, such as whether it has been validated, matched, underbilled, or overbilled.",
+        "datatype": "Picklist"
+      },
+      {
+        "FieldLabel": "Start Date",
+        "apiname": "Start_Date__c",
+        "description": "The start date of the billing period covered by this invoice.",
+        "datatype": "Date"
+      },
+      {
+        "FieldLabel": "Status",
+        "apiname": "Status__c",
+        "description": "Picklist field that represents the current status of the invoice in its lifecycle, such as draft, issued, paid, or cancelled.",
+        "datatype": "Picklist"
+      },
+      {
+        "FieldLabel": "System Modstamp",
+        "apiname": "SystemModstamp",
+        "description": "The system date and time stamp indicating when the record was last updated by Salesforce processes.",
+        "datatype": "Date/Time"
+      },
+      {
+        "FieldLabel": "Total Amount",
+        "apiname": "Total_Amount__c",
+        "description": "The total invoice amount, typically including all billed charges and applicable taxes or adjustments.",
+        "datatype": "Currency"
+      },
+      {
+        "FieldLabel": "Total Charges",
+        "apiname": "Total_Charges__c",
+        "description": "The total amount of charges before or separate from tax, depending on business calculation rules.",
+        "datatype": "Currency"
+      },
+      {
+        "FieldLabel": "Total Gross Impressions",
+        "apiname": "Total_Gross_Impressions__c",
+        "description": "The total number of gross impressions recorded for the invoice period before invalid traffic or viewability adjustments.",
+        "datatype": "Number"
+      },
+      {
+        "FieldLabel": "Total Invalid Impressions",
+        "apiname": "Total_Invalid_Impressions__c",
+        "description": "The total number of invalid impressions identified for the invoice period.",
+        "datatype": "Number"
+      },
+      {
+        "FieldLabel": "Total Tax",
+        "apiname": "Total_Tax__c",
+        "description": "The total tax amount applied to this invoice.",
+        "datatype": "Currency"
+      },
+      {
+        "FieldLabel": "Total Valid Impressions",
+        "apiname": "Total_Valid_Impressions__c",
+        "description": "The total number of valid impressions after excluding invalid impressions for the invoice period.",
+        "datatype": "Number"
+      },
+      {
+        "FieldLabel": "Total Viewable Impressions",
+        "apiname": "Total_Viewable_Impressions__c",
+        "description": "The total number of viewable impressions recorded for the invoice period after applying viewability calculations.",
+        "datatype": "Number"
+      },
+      {
+        "FieldLabel": "Variance Amount",
+        "apiname": "Variance_Amount__c",
+        "description": "The variance amount identified during reconciliation, representing the difference between expected and billed invoice values.",
+        "datatype": "Currency"
+      }
+    ]
+  },
+
+  {
+    "object": "Custom_Invoice_Line_Item__c",
+    "description": "Represents a custom invoice line item record used to capture billed product-level details for an invoice, including pricing, impressions, reconciliation metrics, billing basis, and tax amounts. This object is similar to a standard invoice line item and is used for tracking line-level billing and reconciliation against Orders, Order Products, Products, and the parent invoice.",
+    "fields": [
+      {
+        "FieldLabel": "Billed Impressions",
+        "apiname": "Billed_Impressions__c",
+        "description": "The total number of impressions billed for this invoice line item.",
+        "datatype": "Number"
+      },
+      {
+        "FieldLabel": "Billing Basis",
+        "apiname": "Billing_Basis__c",
+        "description": "Picklist field that indicates the billing basis used for this invoice line item, such as gross, valid, or viewable impressions depending on business rules.",
+        "datatype": "Picklist"
+      },
+      {
+        "FieldLabel": "Created By ID",
+        "apiname": "CreatedById",
+        "description": "Lookup to the User who created this invoice line item record.",
+        "datatype": "Lookup (User)"
+      },
+      {
+        "FieldLabel": "Created Date",
+        "apiname": "CreatedDate",
+        "description": "The date and time when this invoice line item record was created.",
+        "datatype": "Date/Time"
+      },
+      {
+        "FieldLabel": "eCPM",
+        "apiname": "eCPM__c",
+        "description": "The effective cost per thousand impressions calculated for this invoice line item.",
+        "datatype": "Currency"
+      },
+      {
+        "FieldLabel": "End Date",
+        "apiname": "End_Date__c",
+        "description": "The end date of the billing or delivery period covered by this invoice line item.",
+        "datatype": "Date"
+      },
+      {
+        "FieldLabel": "Gross Impressions",
+        "apiname": "Gross_Impressions__c",
+        "description": "The total number of gross impressions recorded for this line item before any invalid traffic or viewability adjustments.",
+        "datatype": "Number"
+      },
+      {
+        "FieldLabel": "Record ID",
+        "apiname": "Id",
+        "description": "The unique identifier for this invoice line item record.",
+        "datatype": "Id"
+      },
+      {
+        "FieldLabel": "Invalid Impressions",
+        "apiname": "Invalid_Impressions__c",
+        "description": "The total number of invalid impressions identified for this invoice line item.",
+        "datatype": "Number"
+      },
+      {
+        "FieldLabel": "Invoice",
+        "apiname": "Invoice__c",
+        "description": "Lookup to the parent invoice associated with this invoice line item.",
+        "datatype": "Lookup (Custom Invoice)"
+      },
+      {
+        "FieldLabel": "Deleted",
+        "apiname": "IsDeleted",
+        "description": "Indicates whether this invoice line item record has been deleted.",
+        "datatype": "Checkbox"
+      },
+      {
+        "FieldLabel": "IVT Percent",
+        "apiname": "IVT_Percent__c",
+        "description": "The invalid traffic percentage applied to this invoice line item for reconciliation and billing analysis.",
+        "datatype": "Percent"
+      },
+      {
+        "FieldLabel": "Last Modified By ID",
+        "apiname": "LastModifiedById",
+        "description": "Lookup to the User who last modified this invoice line item record.",
+        "datatype": "Lookup (User)"
+      },
+      {
+        "FieldLabel": "Last Modified Date",
+        "apiname": "LastModifiedDate",
+        "description": "The date and time when this invoice line item record was last modified.",
+        "datatype": "Date/Time"
+      },
+      {
+        "FieldLabel": "Line Amount",
+        "apiname": "Line_Amount__c",
+        "description": "The total billed amount for this invoice line item.",
+        "datatype": "Currency"
+      },
+      {
+        "FieldLabel": "Line Number",
+        "apiname": "Name",
+        "description": "The line number or unique name used to identify this invoice line item within the invoice.",
+        "datatype": "Text"
+      },
+      {
+        "FieldLabel": "Order",
+        "apiname": "Order__c",
+        "description": "Lookup to the Order associated with this invoice line item.",
+        "datatype": "Lookup (Order)"
+      },
+      {
+        "FieldLabel": "Order Product",
+        "apiname": "Order_Product__c",
+        "description": "Lookup to the related Order Product or Order Line Item associated with this invoice line item.",
+        "datatype": "Lookup (Order Product)"
+      },
+      {
+        "FieldLabel": "Price",
+        "apiname": "Price__c",
+        "description": "The unit price or agreed billing rate used for this invoice line item.",
+        "datatype": "Currency"
+      },
+      {
+        "FieldLabel": "Pricing Model",
+        "apiname": "Pricing_Model__c",
+        "description": "Picklist field that identifies the pricing model used for this invoice line item, such as CPM or other billing models.",
+        "datatype": "Picklist"
+      },
+      {
+        "FieldLabel": "Product",
+        "apiname": "Product__c",
+        "description": "Lookup to the Product associated with this invoice line item.",
+        "datatype": "Lookup (Product)"
+      },
+      {
+        "FieldLabel": "Reconciliation Status",
+        "apiname": "Reconciliation_Status__c",
+        "description": "Picklist field that indicates the reconciliation state of this invoice line item, such as matched, underbilled, or overbilled.",
+        "datatype": "Picklist"
+      },
+      {
+        "FieldLabel": "Start Date",
+        "apiname": "Start_Date__c",
+        "description": "The start date of the billing or delivery period covered by this invoice line item.",
+        "datatype": "Date"
+      },
+      {
+        "FieldLabel": "System Modstamp",
+        "apiname": "SystemModstamp",
+        "description": "The system date and time stamp indicating when the record was last updated by Salesforce processes.",
+        "datatype": "Date/Time"
+      },
+      {
+        "FieldLabel": "Tax Amount",
+        "apiname": "Tax_Amount__c",
+        "description": "The tax amount applied to this invoice line item.",
+        "datatype": "Currency"
+      },
+      {
+        "FieldLabel": "Valid Impressions",
+        "apiname": "Valid_Impressions__c",
+        "description": "The total number of valid impressions after excluding invalid impressions for this invoice line item.",
+        "datatype": "Number"
+      },
+      {
+        "FieldLabel": "Variance Amount",
+        "apiname": "Variance_Amount__c",
+        "description": "The variance amount identified during reconciliation for this invoice line item, representing the difference between expected and billed values.",
+        "datatype": "Currency"
+      },
+      {
+        "FieldLabel": "Viewability Percent",
+        "apiname": "Viewability_Percent__c",
+        "description": "The viewability percentage applied to this invoice line item for billing and reconciliation analysis.",
+        "datatype": "Percent"
+      },
+      {
+        "FieldLabel": "Viewable Impressions",
+        "apiname": "Viewable_Impressions__c",
+        "description": "The total number of viewable impressions recorded for this invoice line item after applying viewability calculations.",
+        "datatype": "Number"
+      }
+    ]
   }
 ]
