@@ -103,12 +103,7 @@
         "apiname": "GenderIdentity",
         "description": "A picklist field to capture the gender identity of the contact for demographic profiling or targeted marketing.",
         "datatype": "Picklist",
-        "picklistValues": [
-          "Male",
-          "Female",
-          "Nonbinary",
-          "Not Listed"
-        ],
+        "picklistValues": ["Male", "Female", "Nonbinary", "Not Listed"],
         "FieldLabel": "Gender Identity"
       },
       {
@@ -448,12 +443,7 @@
         "datatype": "Picklist",
         "defaultValue": "Planned",
         "needvalue": true,
-        "picklistValues": [
-          "Planned",
-          "In Progress",
-          "Completed",
-          "Aborted"
-        ]
+        "picklistValues": ["Planned", "In Progress", "Completed", "Aborted"]
       },
       {
         "FieldLabel": "Type",
@@ -667,14 +657,7 @@
         "apiname": "Salutation",
         "description": "The salutation of the campaign member used for respectful communication in personalized marketing.",
         "datatype": "Picklist",
-        "picklistValues": [
-          "Mr.",
-          "Ms.",
-          "Mrs.",
-          "Dr.",
-          "Prof.",
-          "Mx."
-        ],
+        "picklistValues": ["Mr.", "Ms.", "Mrs.", "Dr.", "Prof.", "Mx."],
         "FieldLabel": "Salutation"
       },
       {
@@ -687,12 +670,7 @@
         "apiname": "Status",
         "description": "Picklist field that tracks the EMAIL CAMPAIGN ENGAGEMENT status of the campaign member (e.g., whether the email was Sent, Received, or they Responded). IMPORTANT: This field is NOT for employment status. To filter contacts who are currently working at the company, use the Contact object's Start_Date__c and End_Date__c fields instead. Values like 'Sent', 'Responded', 'Planned' indicate email campaign activity, not whether someone is actively employed.",
         "datatype": "Picklist",
-        "picklistValues": [
-          "Planned",
-          "Sent",
-          " Received",
-          " Responded "
-        ],
+        "picklistValues": ["Planned", "Sent", " Received", " Responded "],
         "FieldLabel": "Status"
       },
       {
@@ -861,12 +839,7 @@
         "apiname": "GenderIdentity",
         "description": "Picklist field capturing the gender identity of the lead, useful for demographic segmentation in campaigns.",
         "datatype": "Picklist",
-        "picklistValues": [
-          "Male",
-          "Female",
-          "Nonbinary",
-          "Not Listed"
-        ],
+        "picklistValues": ["Male", "Female", "Nonbinary", "Not Listed"],
         "FieldLabel": "Gender Identity"
       },
       {
@@ -940,14 +913,7 @@
         "apiname": "Salutation",
         "description": "The salutation used when addressing the lead in communications.",
         "datatype": "Picklist",
-        "picklistValues": [
-          "Mr.",
-          "Ms.",
-          "Mrs.",
-          "Dr.",
-          "Prof.",
-          "Mx."
-        ],
+        "picklistValues": ["Mr.", "Ms.", "Mrs.", "Dr.", "Prof.", "Mx."],
         "FieldLabel": "Salutation"
       },
       {
@@ -984,21 +950,14 @@
         "apiname": "Primary__c",
         "description": "Picklist field indicating whether this lead is considered a primary contact for the associated company or account.",
         "datatype": "Picklist",
-        "picklistValues": [
-          "No",
-          "Yes"
-        ],
+        "picklistValues": ["No", "Yes"],
         "FieldLabel": "Primary"
       },
       {
         "apiname": "ProductInterest__c",
         "description": "Picklist to capture the products or services the lead is interested in, useful for segmentation and targeted sales outreach.",
         "datatype": "Picklist",
-        "picklistValues": [
-          "GC1000 series",
-          "GC5000 series",
-          "GC3000 series"
-        ],
+        "picklistValues": ["GC1000 series", "GC5000 series", "GC3000 series"],
         "FieldLabel": "Product Interest"
       },
       {
@@ -1019,11 +978,7 @@
         "apiname": "Rating",
         "description": "Picklist field to rate the lead's quality or readiness for conversion, useful for prioritizing leads in the sales process.",
         "datatype": "Picklist",
-        "picklistValues": [
-          "Hot",
-          "Warm",
-          "Cold"
-        ],
+        "picklistValues": ["Hot", "Warm", "Cold"],
         "FieldLabel": "Rating"
       },
       {
@@ -1196,12 +1151,7 @@
         "apiname": "Ownership",
         "description": "Indicates the ownership structure of the account, whether it’s private, public, or government. This can have a significant impact on the contract renewal terms, with government accounts possibly having specific regulatory compliance needs, while private companies might negotiate differently based on business objectives.",
         "datatype": "Picklist",
-        "picklistValues": [
-          "Public",
-          "Private",
-          "Subsidiary",
-          "Other"
-        ]
+        "picklistValues": ["Public", "Private", "Subsidiary", "Other"]
       },
       {
         "apiname": "ParentId",
@@ -1217,11 +1167,7 @@
         "apiname": "PaymentTerm__c",
         "description": "The payment terms associated with the account, such as net 30, net 60, or customized payment schedules. This field is critical for managing financial aspects of the relationship, such as payment cycles and renewal billing schedules. It ensures that the business and customer align on payment expectations.",
         "datatype": "Picklist",
-        "picklistValues": [
-          "Net 30",
-          "Net 60",
-          "Net 90"
-        ]
+        "picklistValues": ["Net 30", "Net 60", "Net 90"]
       },
       {
         "apiname": "Phone",
@@ -1232,12 +1178,7 @@
         "apiname": "POICategory__c",
         "description": "The category of Points of Interest (POI) linked to the account. POIs could include specific business operations, such as retail locations or data centers. Identifying these points helps in creating location-specific contracts or renewal strategies for businesses with multiple facilities or assets.",
         "datatype": "Picklist",
-        "picklistValues": [
-          "Hotel",
-          "Eatery",
-          "Retailshops",
-          "Healthcare"
-        ]
+        "picklistValues": ["Hotel", "Eatery", "Retailshops", "Healthcare"]
       },
       {
         "apiname": "POI_Image_URL__c",
@@ -1276,11 +1217,7 @@
         "apiname": "Rating",
         "description": "The rating or assessment assigned to the account based on business criteria. This field helps prioritize accounts for services, identify key renewal opportunities, or decide which accounts need special attention during contract negotiations.",
         "datatype": "Picklist",
-        "picklistValues": [
-          "hot",
-          "warm",
-          "cold"
-        ]
+        "picklistValues": ["hot", "warm", "cold"]
       },
       {
         "apiname": "ShippingAddress",
@@ -1508,23 +1445,13 @@
         "apiname": "ProposalDuration__c",
         "description": "The duration of the proposal associated with the quote, represented as a picklist value.",
         "datatype": "Picklist",
-        "picklistValues": [
-          "Short",
-          "Medium",
-          "Long",
-          "Evergreen"
-        ]
+        "picklistValues": ["Short", "Medium", "Long", "Evergreen"]
       },
       {
         "apiname": "ProposedACV__c",
         "description": "The proposed annual contract value associated with the quote, represented as a picklist value.",
         "datatype": "Picklist",
-        "picklistValues": [
-          "Low",
-          "Medium",
-          "High",
-          "Grand"
-        ]
+        "picklistValues": ["Low", "Medium", "High", "Grand"]
       },
       {
         "apiname": "QuoteName",
@@ -2383,10 +2310,7 @@
         "apiname": "Status",
         "description": "The current status of the sales contract line, such as active, completed, or expired.",
         "datatype": "Picklist",
-        "picklistValues": [
-          "Active",
-          "Inactive"
-        ]
+        "picklistValues": ["Active", "Inactive"]
       },
       {
         "apiname": "TotalPrice",
@@ -2633,10 +2557,7 @@
         "apiname": "Status",
         "description": "The current status of the order, such as draft or activated.",
         "datatype": "Picklist",
-        "picklistValues": [
-          "Draft",
-          "Activated"
-        ]
+        "picklistValues": ["Draft", "Activated"]
       },
       {
         "apiname": "TotalAdjustedDeliveryAmount",
@@ -3025,11 +2946,7 @@
         "apiname": "Type",
         "description": "The type of order item, such as product or service.",
         "datatype": "Picklist",
-        "picklistValues": [
-          "Order Product",
-          "Delivery Charge",
-          "Fee"
-        ]
+        "picklistValues": ["Order Product", "Delivery Charge", "Fee"]
       },
       {
         "apiname": "UnitPrice",
