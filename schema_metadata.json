@@ -3915,5 +3915,114 @@
         "datatype": "Number"
       }
     ]
+  },
+
+  {
+    "object": "Delivery_Data__c",
+    "description": "Represents delivery performance data captured at the order product level for a specific date. This object is used to store gross delivery, billable metrics, invalid traffic percentage, and viewability percentage for reconciliation, invoice validation, and performance tracking purposes.",
+    "fields": [
+      {
+        "FieldLabel": "Billable",
+        "apiname": "Billable__c",
+        "description": "The total billable delivery quantity for the given date after applying the relevant billing logic.",
+        "datatype": "Number"
+      },
+      {
+        "FieldLabel": "Created By ID",
+        "apiname": "CreatedById",
+        "description": "Lookup to the User who created this delivery data record.",
+        "datatype": "Lookup (User)"
+      },
+      {
+        "FieldLabel": "Created Date",
+        "apiname": "CreatedDate",
+        "description": "The date and time when this delivery data record was created.",
+        "datatype": "Date/Time"
+      },
+      {
+        "FieldLabel": "Date",
+        "apiname": "Date__c",
+        "description": "The specific date for which the delivery metrics were recorded.",
+        "datatype": "Date"
+      },
+      {
+        "FieldLabel": "Gross",
+        "apiname": "Gross__c",
+        "description": "The total gross delivery quantity recorded for the given date before invalid traffic or viewability adjustments.",
+        "datatype": "Number"
+      },
+      {
+        "FieldLabel": "Record ID",
+        "apiname": "Id",
+        "description": "The unique identifier for this delivery data record.",
+        "datatype": "Id"
+      },
+      {
+        "FieldLabel": "Deleted",
+        "apiname": "IsDeleted",
+        "description": "Indicates whether this delivery data record has been deleted.",
+        "datatype": "Checkbox"
+      },
+      {
+        "FieldLabel": "IVT%",
+        "apiname": "IVT__c",
+        "description": "The invalid traffic percentage recorded for this delivery entry, used to calculate valid and billable delivery metrics.",
+        "datatype": "Percent"
+      },
+      {
+        "FieldLabel": "Last Modified By ID",
+        "apiname": "LastModifiedById",
+        "description": "Lookup to the User who last modified this delivery data record.",
+        "datatype": "Lookup (User)"
+      },
+      {
+        "FieldLabel": "Last Modified Date",
+        "apiname": "LastModifiedDate",
+        "description": "The date and time when this delivery data record was last modified.",
+        "datatype": "Date/Time"
+      },
+      {
+        "FieldLabel": "Month",
+        "apiname": "Month__c",
+        "description": "The month value associated with this delivery data record, typically used for grouping and reporting.",
+        "datatype": "Text"
+      },
+      {
+        "FieldLabel": "Month & Year",
+        "apiname": "Month_Year__c",
+        "description": "The combined month and year value associated with this delivery data record, used for monthly reporting and reconciliation.",
+        "datatype": "Text"
+      },
+      {
+        "FieldLabel": "Delivery Data Name",
+        "apiname": "Name",
+        "description": "The name used to identify this delivery data record.",
+        "datatype": "Text"
+      },
+      {
+        "FieldLabel": "Order Product",
+        "apiname": "Order_Product__c",
+        "description": "Lookup to the related Order Product or Order Line Item for which this delivery data was captured.",
+        "datatype": "Lookup (Order Product)"
+      },
+      {
+        "FieldLabel": "Owner ID",
+        "apiname": "OwnerId",
+        "description": "Lookup to the User who owns this delivery data record.",
+        "datatype": "Lookup (User)"
+      },
+      {
+        "FieldLabel": "System Modstamp",
+        "apiname": "SystemModstamp",
+        "description": "The system date and time stamp indicating when the record was last updated by Salesforce processes.",
+        "datatype": "Date/Time"
+      },
+      {
+        "FieldLabel": "Viewability%",
+        "apiname": "Viewability__c",
+        "description": "The viewability percentage recorded for this delivery entry, used in performance analysis and invoice reconciliation.",
+        "datatype": "Percent"
+      }
+    ]
   }
 ]
