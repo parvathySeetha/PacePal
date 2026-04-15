@@ -65,7 +65,7 @@ async def startup_event():
         try:
             success = preload_prompts_for_consumer("Reconciliation Agent")
             if success:
-                logger.info("PS ✅ Prompt cache initialized successfully")
+                logger.info("✅ Prompt cache initialized successfully")
             else:
                 logger.warning("⚠️ Prompt cache initialization failed")
         except Exception as e:
@@ -110,7 +110,7 @@ async def execute_reconcillation_task(request: AgentRequest):
              logger.info(f"🔄 Reconciliation Agent received RESUME request")
         else:
              logger.info(f"📧 Reconciliation Agent received NEW task: {request.user_goal[:50]}...")
-             logger.info(f"   Context keys: {list(request.context.keys())}")
+             logger.info(f"   Starting new graph turn {list(request.context.keys())}")
              logger.info(f"   Record ID: {request.context.get('record_id')}")
              
         # Initialize thread config

@@ -2583,9 +2583,19 @@
         "apiname": "GrandTotalAmount",
         "description": "The grand total amount for the order, including all adjustments and taxes.",
         "datatype": "Currency(16, 2)"
-      }
-    ]
-  },
+      },
+      {
+      "apiname": "Rate__c",
+      "description": "The specific rate applied to this order item.",
+      "datatype": "Number(16, 2)"
+    },
+    {
+      "apiname": "Pricing_Model__c",
+      "description": "The pricing model used to determine the cost of this order item.",
+      "datatype": "Picklist"
+    }
+  ]
+},
   {
     "object": "OrderItem",
     "description": "Represents an individual item in an order, detailing the product, pricing, and adjustments for that specific line item.",

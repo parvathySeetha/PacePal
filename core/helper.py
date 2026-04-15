@@ -370,6 +370,7 @@ def preload_prompts_for_consumer(consumer_name: str) -> bool:
             
         _cache_initialized = True
         logger.info(f"🎉 [MongoPreload] Successfully cached {count} prompts for {consumer_name}")
+        logger.info(f"🎉 [MongoPreload] Prompts are : {_prompt_cache}")
         return True
         
     except Exception as e:
@@ -428,10 +429,11 @@ def fetch_prompt_metadata_mongo(
         logger.info(f"🔍 [MongoPrompt] Querying Prompt: {query}")
         doc = coll.find_one(query)
         
+    
         if not doc:
             logger.warning(f"⚠️ [MongoPrompt] No prompt found for {node_name} ({consumer_name})")
             return None
-            
+        
         logger.info(f"✅ [MongoPrompt] Found prompt: {doc.get('versionName')} (ID: {doc.get('_id')})")
         
         # Parse Configs
@@ -491,6 +493,9 @@ def fetch_prompt_metadata(
     if result:
          # Cache the result
         _prompt_cache[node_name] = result
+
+        logger.info(f"PS123 PROMPTCACHE: {result}")
+        
         return result
     
     return None

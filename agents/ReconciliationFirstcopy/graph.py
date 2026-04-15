@@ -18,7 +18,7 @@ def should_continue(state: ReconcillationState) -> str:
 
 def build_reconcillation_graph(checkpointer=None):
     workflow = StateGraph(ReconcillationState)
-    logger.info(f"PS15 graph.py->workflow : {workflow}")
+
     workflow.add_node("fetchdeliverydata", fetch_delivery_data_node)
     workflow.add_node("Calculate", calculate_node)
     workflow.add_node("Amendment", amendment_node)
