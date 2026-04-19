@@ -1,4 +1,5 @@
 
+# OG 
 from dotenv import load_dotenv
 load_dotenv()
 import json
@@ -8,6 +9,7 @@ from dataclasses import dataclass
 import os
 from openai import AsyncOpenAI
 from langchain_openai import ChatOpenAI
+from langchain_google_genai import ChatGoogleGenerativeAI
 import asyncio
 from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
 from mcp_module.Salesforcemcp.client.sf_client import SalesforceClient
@@ -17,6 +19,11 @@ from mcp.client.stdio import stdio_client
 from agents.marketing.state import MarketingState
 import sys
 import re
+
+# ps gemma- remove later
+import os
+import httpx
+
 # Ensure env vars are loaded
 load_dotenv(override=True)
 
@@ -623,9 +630,10 @@ def build_llm(
     #     # e.g. model="claude-3-5-sonnet-20241022"
     #     return ChatAnthropic(model=model, temperature=temperature, api_key=api_key)
 
-    # elif provider == "gemini":
-    #     # e.g. model="gemini-1.5-flash"
-    #     return ChatGoogleGenerativeAI(model=model, temperature=temperature, api_key=api_key)
+    elif provider == "gemini":
+        # e.g. model="gemini-1.5-flash"
+        api_key_to_use = api_key or os.getenv("GOOGLE_API_KEY")
+        return ChatGoogleGenerativeAI(model=model, temperature=temperature, api_key=api_key_to_use)
 
     else:
         logger.warning(f"Unknown provider '{provider}', defaulting to OpenAI {default_model}")
@@ -695,7 +703,12 @@ async def call_llm(
         try:
             response = await asyncio.wait_for(llm.ainvoke(messages), 30.0)
             logger.info(f"🔵 LLM call complete: {response}")
-            return response.content
+            content = response.content
+            if isinstance(content, list):
+                # Some models return a list of parts (e.g. {'type': 'text', 'text': '...'})
+                parts = [item.get("text", "") for item in content if isinstance(item, dict) and "text" in item]
+                return "".join(parts)
+            return str(content)
         except asyncio.TimeoutError:
             logger.error("❌ LLM call timed out")
             raise TimeoutError("LLM request timed out")

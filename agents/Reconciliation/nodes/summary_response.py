@@ -66,13 +66,23 @@ Reconciliation Data:
         logger.info("✅ Using fallback prompt for summary_response_node")
 
     try:
+        # PS1904 COMMNTED
+        # response = await call_llm(
+        #     system_prompt=system_prompt,
+        #     user_prompt=user_prompt,
+        #     default_model="gpt-4o",
+        #     default_provider="openai",
+        #     default_temperature=0
+        # )
+
         response = await call_llm(
             system_prompt=system_prompt,
             user_prompt=user_prompt,
-            default_model="gpt-4o",
-            default_provider="openai",
+            default_model="gemma-4-26b-a4b-it",
+            default_provider="gemini",
             default_temperature=0
         )
+
         state["final_response"] = response.strip()
 
         status_raw = variance.get("status", "Unknown")
